@@ -24,15 +24,35 @@ label start:
     # replace it by adding a file named "wife.png" to the images
     # directory.
 
-    show love bullet 1.png
+    show love bullet 1
 
     # These display lines of dialogue.
 
-    e "I'm doctor misery. She needs crazy head to live."
+    e "I'm doctor misery. She needs medicine drug to live."
 
-    w "You suck at giving head."
+    w "I would like medicine drug."
 
-    p "What if you sucked it in frightening and interesting ways?"
+    p "If you don't give her medicine drug I'll suck you silly"
+
+# Two separate routes: one where you get with the parasite and things are awesome 
+# and the other where you don't get with the parasite and the parasite kills everyone
+
+# Test choice: Medicine drug or no medicine drug
+
+# Tutorial template code
+
+screen buttons:
+    add "bg.png"
+    hbox:
+        imagebutton:
+             auto: "medicine%s.jpeg"
+             action Jump("medicine")
+
+        imagebutton: 
+             auto: "no_medicine%s"
+             action Jump("no_medicine%s.jpeg")
+
+ 
 
     # This ends the game.
 
