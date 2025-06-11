@@ -26,12 +26,12 @@ label start:
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    e "This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text "
     $ say_style = "Cutscene"
 
     show eileen happy:
         xpos 0.4
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    e "This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text "
 
     # This ends the game.
 

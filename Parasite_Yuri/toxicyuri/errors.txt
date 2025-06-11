@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 116: Line is indented, but the preceding text statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    xpos (20 if say_style == "Interrogation" else 40) ypos (20 if say_style == "Interrogation" else 0)
-    ^
+File "game/gui.rpy", line 137: invalid syntax
+    init gui.dialogue_width = (950 if say_style == "Interrogation" else 1900)
+          ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Jun 10 15:37:08 2025
+Tue Jun 10 20:39:26 2025

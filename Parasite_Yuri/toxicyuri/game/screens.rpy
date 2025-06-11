@@ -116,7 +116,7 @@ screen say(who, what):
                 style "namebox"
                 text who id "who" xpos (0 if say_style == "Interrogation" else 40) ypos (20 if say_style == "Interrogation" else 25)
 
-        text what id "what" xpos (20 if say_style == "Interrogation" else 50) ypos 75
+        text what id "what" xpos (20 if say_style == "Interrogation" else 50) ypos 75 xsize (950 if say_style == "Interrogation" else 1900)
 
 
     ## If there's a side image, display it above the text. Do not display on the
