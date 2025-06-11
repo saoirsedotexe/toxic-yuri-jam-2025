@@ -219,8 +219,19 @@ screen choice(items):
     style_prefix "choice"
 
     vbox:
+        xpos (0 if say_style == "Interrogation" else 0.5)
+        xanchor (0.0 if say_style == "Interrogation" else 0.5)
+        ypos (0.66 if say_style == "Interrogation" else 270)
+        yanchor 0.5
+        spacing gui.choice_spacing
+
         for i in items:
-            textbutton i.caption action i.action
+            textbutton i.caption action i.action:
+                background (Frame("gui/button/choice_idle_background.png") if say_style == "Cutscene" else None)
+                xalign (0 if say_style == "Interrogation" else 0.5)
+                text_xalign (0 if say_style == "Interrogation" else 0.5)
+                xfill True 
+                xsize 500
 
 
 style choice_vbox is vbox
@@ -229,7 +240,7 @@ style choice_button_text is button_text
 
 style choice_vbox:
     xalign 0.5
-    ypos 405
+    ypos 270
     yanchor 0.5
 
     spacing gui.choice_spacing

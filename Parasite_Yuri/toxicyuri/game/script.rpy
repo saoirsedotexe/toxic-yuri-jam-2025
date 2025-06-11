@@ -27,12 +27,26 @@ label start:
     # These display lines of dialogue.
 
     e "This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text "
+    menu:
+        "Question"
+
+        "Answer 1":
+            "Picked Answer 1"
+        "Answer 2":
+            "Picked Answer 2"
+    
     $ say_style = "Cutscene"
 
     show eileen happy:
         xpos 0.4
     e "This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text This is really long text "
+    menu:
+        "Question"
 
+        "Answer 1":
+            "Picked Answer 1"
+        "Answer 2":
+            "Picked Answer 2"
     # This ends the game.
 
     return

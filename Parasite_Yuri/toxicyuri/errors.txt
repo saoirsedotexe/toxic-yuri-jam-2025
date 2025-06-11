@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/gui.rpy", line 137: invalid syntax
-    init gui.dialogue_width = (950 if say_style == "Interrogation" else 1900)
-          ^
+File "game/screens.rpy", line 222: The if statement is not a valid child of the vbox statement.
+    xpos 0 if say_style == "Interrogation" else 0.5
+             ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Jun 10 20:39:26 2025
+Tue Jun 10 22:06:17 2025
