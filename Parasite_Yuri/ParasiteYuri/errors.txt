@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 54: 'return' is not a keyword argument or valid child of the screen statement.
-    return
-          ^
+File "game/script.rpy", line 12: expected '=' not found.
+    define s Character("Stickfigure")
+             ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Sat Jun 14 16:44:04 2025
+Thu Jun 26 11:12:25 2025

@@ -9,6 +9,7 @@ define w = Character("Wife")
 
 define p = Character("Parasite")
 
+define s = Character("Stickfigure")
 
 # The game starts here.
 
@@ -37,6 +38,14 @@ label start:
     p "If you don't give her medicine drug I'll suck you silly"
 
     $ say_style = "Cutscene" #Cutscene or Interrogation
+
+    show stickfigure
+
+    s "I too am in this episode"
+
+    show stickfigure sad
+
+    s "I am sad now"
 
     call screen buttons()
 
