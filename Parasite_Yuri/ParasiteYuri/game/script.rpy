@@ -3,9 +3,13 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Doctor")
+define n = Character(None, what_prefix="{i}", what_suffix="{/i}")
 
-define w = Character("Wife")
+define e = Character("Langston", color="#5dc0d5")
+
+define w = Character("Wife", color="#d95723")
+
+define c = Character("Comms Officer", color="#c9a3f1")
 
 define p = Character("Parasite")
 
@@ -27,7 +31,34 @@ label start:
     # replace it by adding a file named "wife.png" to the images
     # directory.
 
-    show love bullet 1
+    #show love bullet 1
+    
+    n "You are home."
+    n "You are finally home."
+    n "The carpet beneath your feet. {w}The soft of your own bed. {w}The quiet. The quiet."
+    n "You are home."
+    n "Something drips on your shoulder."
+    n "You look up. The ceiling beams have started to melt."
+    n "The door oozes. {w}The shelves go concave. {w}The bed splits."
+    n "Fire eats at the foundation."
+    n "You clutch the infrastructure in place. It comes through your fingers like candle wax. But you stand firm."
+    n "What’s left of the house forms a hollow around you. You keep the mantle from toppling in. You force the engravings to hold their shape."
+    n "You carry the weight."
+    n "Something beeps."
+    
+    #[TRANSITION TO BEDROOM]
+    $ say_style = "Cutscene" #Cutscene or Interrogation
+    
+    n "And then you wake up. Your pager trills."
+    c "Langston."
+    c "We need you at the bridge."
+    c "Something’s wrong."
+    n "You hear your heartbeat in your ears. Static dances over your skin, like a holdover from pins and needles. There’s a weight in your gut."
+    n "You take a deep breath, forcing it to pass."
+    e "Alright."
+    e "I’m on my way."
+    n "You get out of bed."
+
 
     # These display lines of dialogue.
 
@@ -36,8 +67,6 @@ label start:
     w "I would like medicine drug."
 
     p "If you don't give her medicine drug I'll suck you silly"
-
-    $ say_style = "Cutscene" #Cutscene or Interrogation
 
     show stickfigure
 
