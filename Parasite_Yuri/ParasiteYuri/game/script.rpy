@@ -171,15 +171,15 @@ label start:
 
     w "I would like medicine drug."
 
-    p "If you don't give her medicine drug I'll suck you silly"
+    # p "If you don't give her medicine drug I'll suck you silly"
 
-    show stickfigure
+    # show stickfigure
 
-    s "I too am in this episode"
+    # s "I too am in this episode"
 
-    show stickfigure sad
+    # show stickfigure sad
 
-    s "I am sad now"
+    # s "I am sad now"
 
     call screen buttons()
 
