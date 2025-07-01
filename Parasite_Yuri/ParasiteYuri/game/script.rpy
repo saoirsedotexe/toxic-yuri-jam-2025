@@ -73,6 +73,7 @@ label start:
     scene bridge
     
     n "By the time you arrive at the bridge, the COMMS OFFICER stands hunched over his control deck with his hands pressed to both sides of his headset. The ship’s engineer works hard at something on the ship’s panel, only to turn back to the COMMS OFFICER, and shake his head."
+    show CommOfficer
     n "The COMMS OFFICER taps on his microphone."
     c "Captain, do you read me? THE ECOLOGIST. THE NAVIGATOR. Do you read?"
     l "Have we lost signal?"
@@ -136,6 +137,7 @@ label start:
     scene quarantine
     
     n "You stare at the monitors before you. Her various charts fluctuate with every breath, every heartbeat, every muscle twitch. Meanwhile, she sits on the floor, chin on her knees, staring at the ground."
+    show wife_base
     n "Your heart clenches."
     n "COMMS OFFICER walks up behind you. His gaze is solemn. It looks like he hasn’t slept since the funeral."
     c "I hope you know what you’re doing."
