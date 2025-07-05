@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 166: expected ':' not found.
-    label after
-               ^
+File "game/script.rpy", line 262: reached end of line when expecting ':'.
+    if haircut = True
+                     ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Thu Jun 26 22:45:32 2025
+Sat Jul  5 19:19:13 2025

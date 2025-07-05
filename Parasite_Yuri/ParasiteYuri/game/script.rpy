@@ -19,6 +19,7 @@ define p = Character("Parasite")
 
 default vitals = False
 default scans = False
+default haircut = False
 
 # The game starts here.
 
@@ -142,6 +143,7 @@ label start:
     l "I do."
     s "You know her best, after all."
     n "He sighs. Then he leaves you with her."
+    $ say_style = "Interrogation"
     label checks1:
         menu:
             "> CHECK VITALS":
@@ -169,6 +171,7 @@ label start:
     label act2:
     # [TRANSITION TO BEDROOM]
     
+    $ say_style = "Cutscene"
     n "The centrifuge spins and spins and spins. You watch it absentmindedly from your desk chair. This is its third cycle. Your leg bounces beneath your desk."
     n "You rip yourself from the distraction and refocus on your microscope. You adjust the dials, but your vision’s still blurry. Lack of sleep. You push your glasses up to rub your corneas into shape."
     n "The samples beneath the glass still don’t make any sense to you. Nothing’s wrong with them, of course. But there’s just an oddness about them. You think your eyes are tricking you into seeing things that aren’t there, like looking at the walls of a thunderstorm and swearing you can see it spinning into a twister."
@@ -215,246 +218,169 @@ label start:
     s "Alright. Copy."
     n "You turn off the transmitter and immediately click open the startup prompt."
     
-    label act2questioning:
+    label act2question1:
         menu:
-            "> WHAT HAPPENED?\n> WHAT DID YOU DO?"
+            "> WHAT HAPPENED?\n> WHAT DID YOU DO?":
                 w "I just… panicked. I feel suffocated. I can’t stay here."
-
-LANGSTON: Don’t you understand the position I’m in? People already don’t trust us. This is only going to make things worse.
-
-TURNER: You don’t understand what it’s like. You don’t know how alone I feel. What else am I supposed to do?
-
-LANGSTON: You think I don’t know what loneliness feels like?
-
-TURNER: It isn’t the same. 
-TURNER: You chose the life you had. You stayed because you wanted to.
-TURNER: None of this was my choice.
-
-LANGSTON: But coming here was. Leaving home, for who knows how long, putting yourself in harm’s way.
-LANGSTON: If it wasn’t for me, you’d be stuck planetside. At least you have assured safety here.
-LANGSTON: Just so long as the others don’t think something’s wrong.
-
-TURNER: …
-TURNER: Do you think something’s wrong?
-
-LANGSTON: Let’s begin the questioning.
-
-> DESCRIBE WHAT HAPPENED AT SITE C.
-> WHAT HAPPENED TO YOUR HELMET?
-
-TURNER: You already asked me this.
-
-LANGSTON: Tell me again.
-
-TURNER: … Okay.
-TURNER: We were attacked. The Captain was killed and dropped our equipment. KNIGHT managed to grab some of it and get away. It grabbed me, but I fought it and wriggled away. My helmet went off with it.
-TURNER: I was trying to come home to you.
-
-LANGSTON: After everything that had happened that morning, you were really thinking of me?
-
-TURNER: We’ve fought before. 
-
-LANGSTON: It wasn’t like before.
-
-TURNER: Why are you doing this? I don’t know what you want, Alice. 
-
-LANGSTON: I want to make things work.
-
-She stares at the camera, at a loss. She tries to say something, but thinks better of it. Her teeth lock together.
-
-TURNER: We/I have to get out of this first.
-TURNER: Keep asking your questions.
-
-> HAS YOUR CONDITION CHANGED SINCE WE LAST SPOKE?
-
-TURNER: No.
-TURNER: I feel the same.
-
-> WHAT DO YOU DO WHEN I’M NOT HERE?
-
-TURNER: What is there to do?
-TURNER: Stare at the wall. Count the wall tiles. Minus one, now.
-TURNER: ((I used to braid my hair.))
-TURNER: I mostly just think. 
-
-> HAVE YOU EXPERIENCED ANY OTHER EMOTIONAL ABNORMALITIES?
-
-TURNER: What do you think?
-TURNER: I’m trying to keep it together. I am.
-TURNER: But this is just…
-TURNER: I don’t even know how long it’s been.
-
-> WHAT DO YOU THINK ABOUT?
-
-TURNER: You.
-TURNER: But also… the crew. 
-TURNER: What might happen if something is wrong. 
-TURNER: What I could’ve done differently. 
-
-> DO YOU FEEL LIKE YOURSELF?
-
-TURNER: Not in the way you mean.
-TURNER: I’m me. I know I’m me.
-TURNER: But at the end of this, I don’t know if I’ll be the same person that I was before. 
-
-> WHAT COULD YOU HAVE DONE DIFFERENTLY?
-
-TURNER: I keep running through what happened. It’s on playback. Over and over again.
-TURNER: Maybe if I didn’t hesitate. If I just ran from it.
-TURNER: But when the Captain tried to step in front of us, I froze. I didn’t want to leave them behind.
-TURNER: Is it better to flee for your own sake? Or fight even when hope is lost?
-TURNER: What do you think?
-
-> 
-
-> 
-
-> WERE YOU INTENDING TO ESCAPE?
-
-TURNER: I guess it’s about time we get to the point.
-TURNER: Could I have gotten very far, realistically?
-TURNER: I don’t know.
-TURNER: I guess the answer to your question is yes. Even if, subconsciously, I knew better.
-TURNER: I just don’t want to be here anymore.
-
-> WHAT IF SOMEONE SAW YOU?
-
-TURNER: Saw what?
-TURNER: Oh. This.
-TURNER: I didn’t think the alarm would trigger, for one thing.
-TURNER: But even if it did, I knew you’d be the only one to see it.
-TURNER: I’m in your care, after all.
-
-All of a sudden, she stares into the camera for a moment. You get goosebumps.
-
-TURNER: Can I ask you something?
-
-You open your mouth to speak, then close it. You glance at the procedures listed on your monitor.
-
-She tilts her head.
-
-TURNER: Are you there?
-
-> YES
-
-TURNER: You said before you just want to make things work.
-TURNER: What if it’s too late?
-
-LANGSTON: I don’t follow.
-
-TURNER: I think you do.
-TURNER: How long has the writing been on the wall? I’m willing to accept that. It’s just you.
-TURNER: And then you do this. 
-TURNER: Maybe you think I don’t understand what’s happening. But it’s all crystal clear to me.
-TURNER: What if it doesn’t work? What if it’s the last straw?
-
-LANGSTON: …
-LANGSTON: Don’t say that.
-LANGSTON: It won’t be.
-LANGSTON: I can keep it together.
-
-She sits, frozen. But the facade cracks. She gives you a soft smile. She almost even laughs.
-
-TURNER: I’ll keep waiting for you to see it, then.
-TURNER: That’s all.
-
-> NO
-
-TURNER: This has to be mutual, you know.
-TURNER: I want to trust you. I’m forced to trust you. 
-TURNER: But if you want me to just be a lab rat you prod at, fine.
-TURNER: I guess you finally have me where you want me.
-
-
-You’re getting lightheaded. All of this is becoming too much. You hover your cursor back over the contamination protocols.
-
-You’re presented with new options and accompanying instructions.
-
-> SPINAL TAP
-
-In this procedure, a needle is inserted in between the two lumbar bones to collect a sample of cerebrospinal fluid. A cerebrospinal fluid analysis can detect infection, inflammation in the nervous system, and various neurological conditions. 
-
-Approximately 25% of subjects experience a post-lumbar puncture headache, which can result in nausea, vomiting, dizziness, and migraine, all of which are often resolved by idleness and laying down.
-
-> SPINAL TAP
-
-Do you want to proceed?
-
-> YES
-> NO
-
-The wall struggles with the missing panel, but still manages to kick into motion. She jerks towards it, watching the arms form.
-
-TURNER: What are you doing?
-
-LANGSTON: …
-
-She stands, backing towards the wall. Two of the panels behind her shove her forward, closer to the bed. Corralling her.
-
-TURNER: Make it stop.
-
-LANGSTON: It would be easier if you just laid down.
-
-She shuffles forward. Then, in the corner of her eye, the discarded bit of wall she tore off. She grabs it, holding it defensively over her shoulder. 
-
-She swings. The panels react in kind, bucking back. One catches her off guard, however, shoving her backward. She cries out and they move in, cornering and cornering her until she’s forced onto the bed. One of the panels pins her down. The other shifts, until an arm with a needle reveals itself.
-
-TURNER: ALICE!
-
-LANGSTON: Whatever it takes.
-
-You bite your cheek as you watch it happen. The injection, the jump of her skin, the submission. Your knuckles go white against the surface of your desk. Your eyes burn.
-
-She relaxes, finally. The arms recede. You taste blood.
-
-> INSERT PROBE
-
-A microscopic camera would be inserted into the subject’s bloodstream via needle to monitor their organs from the inside. The camera will then establish transmitters within the body which will then trigger an alert when disturbed. The transmitter is capable of picking up on infection, inflammation, parasites, and other foreign bodies. 
-
-The transmitters and camera can only be removed via surgical procedure.
-
-> INSERT PROBE
-
-Do you want to proceed?
-
-> YES
-> NO
-
-The wall struggles with the missing panel, but still manages to kick into motion. She jerks towards it, watching the arms form.
-
-TURNER: What are you doing?
-
-LANGSTON: It’s just an injection.
-
-She seems to loosen, some. The arm with the needle approaches her, looming over her. She stares at it warily. 
-
-LANGSTON: What if I don’t want to see it?
-
-She doesn’t take her eye off the needle. But you can see her thinking.
-
-She shrugs. She lays her arm out for ease of access.
-
-TURNER: Then don’t.
-TURNER: It’s your life, Langston. Do with it what you will.
-
-The needle comes down. She doesn’t wince. She doesn’t move at all.
-
-TURNER: But I think things would be a lot easier for you if you were willing to accept it.
-TURNER: Things change. People change.
-TURNER: If you don’t change with them, what’s going to be left of you?
-TURNER: I don’t think you’d be very happy that way.
-
-The arm recedes. Blood bubbles at the injection site. She smears it down her skin.
-
-She smiles.
-
-TURNER: Just think about it.
-
-You feel a surge of cold. 
-
-You intend to.
-
-
+                w "Don’t you understand the position I’m in? People already don’t trust us. This is only going to make things worse."
+                w "You don’t understand what it’s like. You don’t know how alone I feel. What else am I supposed to do?"
+                l "You think I don’t know what loneliness feels like?"
+                w "It isn’t the same." 
+                w "You chose the life you had. You stayed because you wanted to."
+                w "None of this was my choice."
+                l "But coming here was. Leaving home, for who knows how long, putting yourself in harm’s way."
+                l "If it wasn’t for me, you’d be stuck planetside. At least you have assured safety here."
+                l "Just so long as the others don’t think something’s wrong."
+                w "…"
+                w "Do you think something’s wrong?"
+                l "Let’s begin the questioning."
+    $ say_style = "Interrogation"
+    label act2question2:
+        menu:
+            "> DESCRIBE WHAT HAPPENED AT SITE C.\n> WHAT HAPPENED TO YOUR HELMET?":
+                w "You already asked me this."
+                l "Tell me again."
+                w "…Okay."
+                w "We were attacked. The Captain was killed and dropped our equipment. Knight managed to grab some of it and get away. It grabbed me, but I fought it and wriggled away. My helmet went off with it."
+                w "I was trying to come home to you."
+                l "After everything that had happened that morning, you were really thinking of me?"
+                w "We’ve fought before."
+                l "It wasn’t like before."
+                w "Why are you doing this? I don’t know what you want, Alice."
+                l "I want to make things work."
+                n "She stares at the camera, at a loss. She tries to say something, but thinks better of it. Her teeth lock together."
+                w "We have to get out of this first."
+                w "Keep asking your questions."
+    label act2question3:
+        menu:
+            "> HAS YOUR CONDITION CHANGED SINCE WE LAST SPOKE?":
+                w "No."
+                w "I feel the same."
+            "> WHAT DO YOU DO WHEN I’M NOT HERE?":
+                w "What is there to do?"
+                w "Stare at the wall. Count the wall tiles. Minus one, now."
+                if haircut:
+                    w "I used to braid my hair."
+                w "I mostly just think."
+    label act2question4:
+        menu:
+            "> HAVE YOU EXPERIENCED ANY OTHER EMOTIONAL ABNORMALITIES?":
+                w "What do you think?"
+                w "I’m trying to keep it together. I am."
+                w "But this is just…"
+                w "I don’t even know how long it’s been."
+            "> WHAT DO YOU THINK ABOUT?":
+                w "You."
+                w "But also… the crew."
+                w "What might happen if something is wrong."
+                w "What I could’ve done differently."
+    label act2question5:
+        menu:
+            "> DO YOU FEEL LIKE YOURSELF?":
+                w "Not in the way you mean."
+                w "I’m me. I know I’m me."
+                w "But at the end of this, I don’t know if I’ll be the same person that I was before."
+            "> WHAT COULD YOU HAVE DONE DIFFERENTLY?":
+                w "I keep running through what happened. It’s on playback. Over and over again."
+                w "Maybe if I didn’t hesitate. If I just ran from it."
+                w "But when the Captain tried to step in front of us, I froze. I didn’t want to leave them behind."
+                w "Is it better to flee for your own sake? Or fight even when hope is lost?"
+                w "What do you think?"
+    label act2question6:
+        menu:
+            "> WERE YOU INTENDING TO ESCAPE?":
+                w "I guess it’s about time we get to the point."
+                w "Could I have gotten very far, realistically?"
+                w "I don’t know."
+                w "I guess the answer to your question is yes. Even if, subconsciously, I knew better."
+                w "I just don’t want to be here anymore."
+            "> WHAT IF SOMEONE SAW YOU?":
+                w "Saw what?"
+                w "Oh. This."
+                w "I didn’t think the alarm would trigger, for one thing."
+                w "But even if it did, I knew you’d be the only one to see it."
+                w "I’m in your care, after all."
+    n "All of a sudden, she stares into the camera for a moment. You get goosebumps."
+    w "Can I ask you something?"
+    n "You open your mouth to speak, then close it. You glance at the procedures listed on your monitor."
+    n "She tilts her head."
+    w "Are you there?"
+    label act2question7:
+        menu:
+            "> YES":
+                w "You said before you just want to make things work."
+                w "What if it’s too late?"
+                l "I don’t follow."
+                w "I think you do."
+                w "How long has the writing been on the wall? I’m willing to accept that. It’s just you."
+                w "And then you do this." 
+                w "Maybe you think I don’t understand what’s happening. But it’s all crystal clear to me."
+                w "What if it doesn’t work? What if it’s the last straw?"
+                l "…"
+                l "Don’t say that."
+                l "It won’t be."
+                l "I can keep it together."
+                n "She sits, frozen. But the facade cracks. She gives you a soft smile. She almost even laughs."
+                w "I’ll keep waiting for you to see it, then."
+                w "That’s all."
+            "> NO":
+                w "This has to be mutual, you know."
+                w "I want to trust you. I’m forced to trust you."
+                w "But if you want me to just be a lab rat you prod at, fine."
+                w "I guess you finally have me where you want me."
+                # big points for murder route
+    n "You’re getting lightheaded. All of this is becoming too much. You hover your cursor back over the contamination protocols."
+    n "You’re presented with new options and accompanying instructions."
+    label act2torture:
+        menu:
+            "> SPINAL TAP":
+                n "In this procedure, a needle is inserted in between the two lumbar bones to collect a sample of cerebrospinal fluid. A cerebrospinal fluid analysis can detect infection, inflammation in the nervous system, and various neurological conditions."
+                n "Approximately 25%% of subjects experience a post-lumbar puncture headache, which can result in nausea, vomiting, dizziness, and migraine, all of which are often resolved by idleness and laying down."
+                n "Do you want to proceed?"
+                menu:
+                    "> YES":
+                        n "The wall struggles with the missing panel, but still manages to kick into motion. She jerks towards it, watching the arms form."
+                        w "What are you doing?"
+                        l "…"
+                        n "She stands, backing towards the wall. Two of the panels behind her shove her forward, closer to the bed. Corralling her."
+                        w "Make it stop."
+                        l "It would be easier if you just laid down."
+                        n "She shuffles forward. Then, in the corner of her eye, the discarded bit of wall she tore off. She grabs it, holding it defensively over her shoulder."
+                        n "She swings. The panels react in kind, bucking back. One catches her off guard, however, shoving her backward. She cries out and they move in, cornering and cornering her until she’s forced onto the bed. One of the panels pins her down. The other shifts, until an arm with a needle reveals itself."
+                        w "ALICE!"
+                        l "Whatever it takes."
+                        n "You bite your cheek as you watch it happen. The injection, the jump of her skin, the submission. Your knuckles go white against the surface of your desk. Your eyes burn."
+                        n "She relaxes, finally. The arms recede. You taste blood."
+                    "> NO":
+                        jump act2torture
+            "> INSERT PROBE":
+                n "A microscopic camera would be inserted into the subject’s bloodstream via needle to monitor their organs from the inside. The camera will then establish transmitters within the body which will then trigger an alert when disturbed. The transmitter is capable of picking up on infection, inflammation, parasites, and other foreign bodies."
+                n "The transmitters and camera can only be removed via surgical procedure."
+                n "Do you want to proceed?"
+                menu:
+                    "> YES":
+                        n "The wall struggles with the missing panel, but still manages to kick into motion. She jerks towards it, watching the arms form."
+                        w "What are you doing?"
+                        l "It’s just an injection."
+                        n "She seems to loosen, some. The arm with the needle approaches her, looming over her. She stares at it warily."
+                        l "What if I don’t want to see it?"
+                        n "She doesn’t take her eye off the needle. But you can see her thinking."
+                        n "She shrugs. She lays her arm out for ease of access."
+                        w "Then don’t."
+                        w "It’s your life, Langston. Do with it what you will."
+                        n "The needle comes down. She doesn’t wince. She doesn’t move at all."
+                        w "But I think things would be a lot easier for you if you were willing to accept it."
+                        w "Things change. People change."
+                        w "If you don’t change with them, what’s going to be left of you?"
+                        w "I don’t think you’d be very happy that way."
+                        n "The arm recedes. Blood bubbles at the injection site. She smears it down her skin."
+                        n "She smiles."
+                        w "Just think about it."
+                        n "You feel a surge of cold."
+                        n "You intend to."
+                    "> NO":
+                        jump act2torture
+    n "END OF CONTENT"
     # l "I'm doctor misery. She needs medicine drug to live."
 
     # w "I would like medicine drug."
