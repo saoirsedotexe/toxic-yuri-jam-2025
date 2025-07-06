@@ -2,25 +2,9 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-
-define n = Character(None, what_prefix="{i}", what_suffix="{/i}")
-
-define l = Character("Langston", color="#5dc0d5")
-
-define w = Character("Turner", color="#d95723")
-
-define s = Character("Sutton", color="#c9a3f1")
-
-define k = Character("Knight", color="#98cb83")
-
-define f = Character("Captain", color="#dee46d")
-
-define p = Character("Parasite")
-
 default vitals = False
 default scans = False
 default haircut = False
-
 # The game starts here.
 
 label start:
