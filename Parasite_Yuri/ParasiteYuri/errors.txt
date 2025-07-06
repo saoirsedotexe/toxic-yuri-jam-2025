@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 107: 'alpha' is not a keyword argument or valid child of the window statement.
-    alpha 0.5
-         ^
+File "game/candy_route.rpy", line 167: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    size(1920, 1080)
+    ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Sun Jul  6 12:24:01 2025
+Sun Jul  6 18:14:17 2025
