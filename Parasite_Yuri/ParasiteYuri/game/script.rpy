@@ -15,7 +15,8 @@ label start:
 
     $ say_style = "Interrogation" #Cutscene or Interrogation
 
-    scene CG_1_Title
+    scene space:
+        size(1920, 1080)
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "wife.png" to the images
@@ -39,7 +40,7 @@ label start:
     #[TRANSITION TO BEDROOM]
     $ say_style = "Cutscene" #Cutscene or Interrogation
     
-    scene bedroom_dark:
+    scene bedroom_dark with fade:
         size(1920, 1080)
     
     n "And then you wake up. Your pager trills."
@@ -54,10 +55,11 @@ label start:
     
     #[TRANSITION TO BRIDGE]
     
-    scene bridge
+    scene bridge:
+        size(1920, 1080)
     
     n "By the time you arrive at the bridge, the COMMS OFFICER stands hunched over his control deck with his hands pressed to both sides of his headset. The ship’s engineer works hard at something on the ship’s panel, only to turn back to the COMMS OFFICER, and shake his head."
-    show CommOfficer
+    show stickfigure
     n "The COMMS OFFICER taps on his microphone."
     s "Captain, do you read me? THE ECOLOGIST. THE NAVIGATOR. Do you read?"
     l "Have we lost signal?"
