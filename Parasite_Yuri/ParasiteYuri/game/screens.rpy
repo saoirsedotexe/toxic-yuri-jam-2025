@@ -230,9 +230,9 @@ screen choice(items):
 
         for i in items:
             textbutton i.caption action i.action:
-                background (Frame("gui/button/choice_idle_background.png") if say_style == "Cutscene" else None)
+                background (Frame("gui/button/choice_idle_background.png"))
                 xalign (0 if say_style == "Interrogation" else 0.5)
-                text_xalign (0 if say_style == "Interrogation" else 0.5)
+                text_xalign (0.5 if say_style == "Interrogation" else 0.5)
                 xfill True
                 xsize 500
 
