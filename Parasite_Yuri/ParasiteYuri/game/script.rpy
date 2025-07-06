@@ -394,7 +394,7 @@ label start:
 screen buttons():
     add "bg.png"
     hbox:
-        imagebutton auto "images/medicine_%s.png" action Jump("medicine")
+        imagebutton auto "images/medicine_%s.png" action Jump("candy_route")
 
         imagebutton auto "images/no-medicine_%s.png" action Jump("no_medicine") 
 

@@ -4,4 +4,4 @@ define w = Character("Turner", color="#8fb688") # wife
 define s = Character("Sutton", color="#e0fba9") #comms officer
 define k = Character("Knight", color="#92a6e4") #ecologist
 define f = Character("Captain", color="#dee46d")
-define p = Character("Parasite")
+define p = Character("???") #parasite 
