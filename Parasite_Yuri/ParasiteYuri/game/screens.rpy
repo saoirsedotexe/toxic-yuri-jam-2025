@@ -107,7 +107,7 @@ screen say(who, what):
         elif say_style == "Cutscene":
             xalign 0.5
             yalign 1.0
-            
+
             xysize(1920,300)
         if who is not None:
 
