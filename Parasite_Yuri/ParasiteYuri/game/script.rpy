@@ -15,7 +15,7 @@ label start:
 
     $ say_style = "Interrogation" #Cutscene or Interrogation
 
-    scene introdream
+    scene CG_1_Title
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "wife.png" to the images
@@ -39,7 +39,8 @@ label start:
     #[TRANSITION TO BEDROOM]
     $ say_style = "Cutscene" #Cutscene or Interrogation
     
-    scene act1bedroom
+    scene bedroom_dark:
+        size(1920, 1080)
     
     n "And then you wake up. Your pager trills."
     s "Langston."
@@ -53,7 +54,7 @@ label start:
     
     #[TRANSITION TO BRIDGE]
     
-    scene act1bridge
+    scene bridge
     
     n "By the time you arrive at the bridge, the COMMS OFFICER stands hunched over his control deck with his hands pressed to both sides of his headset. The ship’s engineer works hard at something on the ship’s panel, only to turn back to the COMMS OFFICER, and shake his head."
     show CommOfficer
@@ -204,7 +205,7 @@ label start:
     
     label act2question1:
         menu:
-            "> WHAT HAPPENED?\n> WHAT DID YOU DO?":
+            "> WHAT HAPPENED?\n\n> WHAT DID YOU DO?":
                 w "I just… panicked. I feel suffocated. I can’t stay here."
                 w "Don’t you understand the position I’m in? People already don’t trust us. This is only going to make things worse."
                 w "You don’t understand what it’s like. You don’t know how alone I feel. What else am I supposed to do?"
@@ -221,7 +222,7 @@ label start:
     $ say_style = "Interrogation"
     label act2question2:
         menu:
-            "> DESCRIBE WHAT HAPPENED AT SITE C.\n> WHAT HAPPENED TO YOUR HELMET?":
+            "> DESCRIBE WHAT HAPPENED AT SITE C.\n\n> WHAT HAPPENED TO YOUR HELMET?":
                 w "You already asked me this."
                 l "Tell me again."
                 w "…Okay."

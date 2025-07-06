@@ -99,7 +99,7 @@ screen say(who, what):
 
     window:
         id "window"
-        background Solid("#FF000080")
+        background Solid("#333333")
         if say_style == "Interrogation":
             xalign 0
             yalign 1.0
@@ -107,7 +107,7 @@ screen say(who, what):
         elif say_style == "Cutscene":
             xalign 0.5
             yalign 1.0
-
+            
             xysize(1920,300)
         if who is not None:
 
@@ -170,7 +170,7 @@ style say_dialogue:
 
     adjust_spacing False
 
-    
+
 
 ## Input screen ################################################################
 ##
@@ -219,9 +219,9 @@ screen choice(items):
     style_prefix "choice"
 
     vbox:
-        xpos (0 if say_style == "Interrogation" else 0.5)
-        xanchor (0.0 if say_style == "Interrogation" else 0.5)
-        ypos (0.66 if say_style == "Interrogation" else 270)
+        xpos (0.1 if say_style == "Interrogation" else 0.5)
+        xanchor (0.1 if say_style == "Interrogation" else 0.5)
+        ypos (0.5 if say_style == "Interrogation" else 270)
         yanchor 0.5
         spacing gui.choice_spacing
 
@@ -230,7 +230,7 @@ screen choice(items):
                 background (Frame("gui/button/choice_idle_background.png") if say_style == "Cutscene" else None)
                 xalign (0 if say_style == "Interrogation" else 0.5)
                 text_xalign (0 if say_style == "Interrogation" else 0.5)
-                xfill True 
+                xfill True
                 xsize 500
 
 
