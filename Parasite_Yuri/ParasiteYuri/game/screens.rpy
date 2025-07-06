@@ -100,6 +100,8 @@ screen say(who, what):
     window:
         id "window"
         background Solid("#333333")
+        at transform:
+            alpha 0.8
         if say_style == "Interrogation":
             xalign 0
             yalign 1.0
@@ -115,7 +117,8 @@ screen say(who, what):
                 id "namebox"
                 style "namebox"
                 text who id "who" xpos (0 if say_style == "Interrogation" else 40) ypos (20 if say_style == "Interrogation" else 25)
-
+                at transform:
+                    alpha 1.0
         text what id "what" xpos (20 if say_style == "Interrogation" else 50) ypos 75 xsize (950 if say_style == "Interrogation" else 1900)
 
 
