@@ -271,7 +271,7 @@ label candy_route:
     p "You're not afraid? We can take it slow if you need."
     l "Show me." 
     # ^ underline?
-    n She smirks. Then moves in closer. Your back braces against the corner cushions. She pushes your glasses back into your hair, leaving her palms on your cheeks."
+    n "She smirks. Then moves in closer. Your back braces against the corner cushions. She pushes your glasses back into your hair, leaving her palms on your cheeks."
     p "It's funny, getting to know you again."
     p "When I first heard your voice over that speaker...suddenly, I had been missing you for years."
     p "I hated you, too."
