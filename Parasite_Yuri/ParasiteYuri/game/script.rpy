@@ -15,7 +15,8 @@ label start:
 
     $ say_style = "Interrogation" #Cutscene or Interrogation
 
-    scene CG_1_Title
+    scene space:
+        size(1920, 1080)
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "wife.png" to the images
@@ -54,10 +55,11 @@ label start:
     
     #[TRANSITION TO BRIDGE]
     
-    scene bridge
+    scene bridge:
+        size(1920, 1080)
     
     n "By the time you arrive at the bridge, the COMMS OFFICER stands hunched over his control deck with his hands pressed to both sides of his headset. The ship’s engineer works hard at something on the ship’s panel, only to turn back to the COMMS OFFICER, and shake his head."
-    show CommOfficer
+    show stickfigure
     n "The COMMS OFFICER taps on his microphone."
     s "Captain, do you read me? THE ECOLOGIST. THE NAVIGATOR. Do you read?"
     l "Have we lost signal?"
@@ -118,18 +120,12 @@ label start:
     n "As ECOLOGIST approaches, they start waving their arms at the ship. Their voice shouts into the NAVIGATOR’S distant receiver."
     k "STOP! STOP!"
     
-    scene act1quarantine
-
-    # airlock button section
-    # needs to be present for every scene with the monitor
-    # should be up towards the top
-    # neds to coexist with dialogue and fade into background, seems to be taking up whole screen
-    screen button():
-         hbox:
-             imagebutton auto "images/airlock_placeholder_%s.png" action Jump("airlock")
-
+    scene quarantine_room_v2:
+        size(1920, 1080)
+    
     n "You stare at the monitors before you. Her various charts fluctuate with every breath, every heartbeat, every muscle twitch. Meanwhile, she sits on the floor, chin on her knees, staring at the ground."
     show wife_base
+    show screen airlockbutton
     n "Your heart clenches."
     n "COMMS OFFICER walks up behind you. His gaze is solemn. It looks like he hasn’t slept since the funeral."
     s "I hope you know what you’re doing."
@@ -160,7 +156,8 @@ label start:
     scene act1
     label act1:
     
-    scene act2bedroom
+    scene bedroom_light_mode:
+        size(1920, 1080)
     label act2:
     # [TRANSITION TO BEDROOM]
     
@@ -197,7 +194,12 @@ label start:
     l "Shit."
     n "You take off running."
     
-    scene act2desk
+    if haircut:
+        scene they_call_me_doctor_desk_short:
+            size(1920, 1080)
+    else:
+        scene they_call_me_doctor_desk_long:
+            size(1920, 1080)
     
     n "The feed of the quarantine hatch is clouded over with decontamination fog. Hands shaking, you remotely turn on a fan to filter it out."
     n "As the haze clears, Turner sits squarely in the center of the room, next to a piece of wall panel. Frayed wires and inner piping now sit exposed in a small rectangle."
@@ -403,11 +405,12 @@ screen buttons():
     add "bg.png"
     hbox:
         imagebutton auto "images/medicine_%s.png" action Jump("candy_route")
-
         imagebutton auto "images/no-medicine_%s.png" action Jump("meat_route") 
-
-            
-
+  
+screen airlockbutton():
+    add "airlock.png"
+    hbox xalign 0.5:
+        imagebutton auto "images/airlock_%s.png" action Jump("airlock")
  
 
     # This ends the game.
