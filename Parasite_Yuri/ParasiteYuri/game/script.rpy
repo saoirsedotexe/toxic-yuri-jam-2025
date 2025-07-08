@@ -5,6 +5,8 @@
 default vitals = False
 default scans = False
 default haircut = False
+default surgery_deny = False
+default oxygen_deny = False
 # The game starts here.
 
 label start:
@@ -24,6 +26,8 @@ label start:
 
     #show love bullet 1
     
+    l "…"
+    l "…"
     n "You are home."
     n "You are finally home."
     n "The carpet beneath your feet. {w}The soft of your own bed. {w}The quiet. The quiet."

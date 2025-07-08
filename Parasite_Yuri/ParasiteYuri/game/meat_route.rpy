@@ -7,8 +7,7 @@ label meat_route:
     n "You hold your head in your hands at the edge of your bed. You've scarcely been near it at all since Turner's return. It brings you no comfort now."
     n "From across the room, your computer monitor blares red. All your sample’s vials have run dry, toppled over across your desk. You’re surrounded by crumpled pieces of paper, all of them wrong, seemingly triggered by some sort of glitch in the system."
     n "It’s possible those needles haven’t been replaced in ages. Perhaps the vials themselves are contaminated. Something. Some kind of mistake."
-    n "The results are wrong."
-    n ">> You don't need them." 
+    n "The results are wrong.{w} You don't need them." 
     n "Everything you’ve ever needed was right here. In this room. Your hands. Her hands. You let it slip away. You let this happen. It’s up to you to make it right."
     n "Your gaze slides across the room. Your doctor’s kit. You stand, crouching down, until you find a booklet of folded fabric. Your tools."
     n "The rubber tube goes taut as you hold it between both hands. Then you wrap it, slowly, around your bicep. You clench it tighter with your teeth."
@@ -19,42 +18,35 @@ label meat_route:
     n "It'll take a few hours. Hours you can't spare waiting."
 
     # TRANSITION TO MONITOR
-    scene they_call_me_doctor_desk_long:
-        size(1920, 1080)
+    if haircut:
+        scene they_call_me_doctor_desk_short:
+            size(1920, 1080)
+    else:
+        scene they_call_me_doctor_desk_long:
+            size(1920, 1080)
     n "She's in bed when you shake the monitor awake. Her back faces away from you."
     n "You start up the session." 
     label act2meatquestion1:
         menu:
-            "> WHAT IS YOUR NAME?":
-                n "She raises her head over her shoulder, bleary eyed."
-                w "Alice?"
-                w "What are you doing?"
-            "> WHAT IS YOUR TITLE?": 
+            "> WHAT IS YOUR NAME?\n\n> WHAT IS YOUR TITLE?":
                 n "She raises her head over her shoulder, bleary eyed."
                 w "Alice?"
                 w "What are you doing?"
     label act2meatquestion2: 
         menu: 
-            "> WHAT IS YOUR NAME?":
-                n "Her brows crease. Her gaze searches the speaker in the wall. She finds nothing."
-                w "Charlotte Turner. Navigator of the Soft Touch. Third in command."
-            "> WHAT IS YOUR TITLE?": 
+            "> WHAT IS YOUR NAME?\n\n> WHAT IS YOUR TITLE?":
                 n "Her brows crease. Her gaze searches the speaker in the wall. She finds nothing."
                 w "Charlotte Turner. Navigator of the Soft Touch. Third in command."
     label act2meatquestion3: 
         menu:
-            "> WHAT ARE YOU TO ME?":
-                n "She sits up. Her arms fold across her chest."
-                w "I don't understand."
-                w "I'm your wife."
-            "> WHAT IS YOUR ROLE?":
+            "> WHAT ARE YOU TO ME?\n\n> WHAT IS YOUR ROLE?":
                 n "She sits up. Her arms fold across her chest."
                 w "I don't understand."
                 w "I'm your wife."
     label act2meatquestion4:
         menu:
             "> SAY IT AGAIN.":
-                w "I'm... your wife."
+                w "I'm… your wife."
     label act2meatquestion5:
         menu:
             "> DESCRIBE YOUR CONDITION.":
@@ -63,10 +55,8 @@ label meat_route:
         menu:
             "> DESCRIBE ANY EMOTIONAL INCONSISTENCIES.":
                 w "That doesn't matter."
-    label act2meatquestion7:
-        menu:
             "> DO YOU LOVE ME?":
-                w "..."
+                w "…"
                 w "Of course I do."
                 w "Do you love me?"
                 l "More than anything."
@@ -79,15 +69,15 @@ label meat_route:
                 n "She fidgets."
                 w "Is something wrong?"
                 w "What do you want me to say?"
-    label act2meatquestion8:
+    label act2meatquestion7:
         menu:
             "> HOW DID WE MEET?":
                 w "It was university."
                 w "We shared a physics class. My friend knew you from other courses. She said you were shy."
-                w "She wasn't even sure if... well."
+                w "She wasn't even sure if… well."
                 w "But I wanted to meet you. You always seemed so confident in discussions. You always had all the right answers."
                 w "You wanted to be a doctor. I didn't know what I wanted."
-                w "But... we ended up hitting it off."
+                w "But… we ended up hitting it off."
                 w "Being around you was the direction I needed."
             "> WHERE WAS OUR FIRST DATE?":
                 w "It took us a while to figure that out."
@@ -96,60 +86,58 @@ label meat_route:
                 w "So we went roller skating. I thought you might find it charming in an old-timey sort of way."
                 w "You didn't. But I think you tried."
                 w "I liked knowing that you would at least try."
-    label act2meatquestion9:
+    label act2meatquestion8:
         menu:
             "> WHAT WERE YOUR WEDDING VOWS?":
-                w "..."
+                w "…"
                 w "To support you. To light your path forward."
                 w "To go where you go. To stay where you stay."
                 w "To love you steadfastly, fervently, eternally."
             "> WHAT WERE MY WEDDING VOWS?": 
-                w "..."
+                w "…"
                 w "To follow me always. To stand by me in darkness."
                 w "To hold yourself open to me. To meet me where I am."
                 w "To love me recklessly, loyally, eternally."
-    label act2meatquestion10:
+    label act2meatquestion9:
         menu:
-            "> THEN WHY DID YOU LEAVE?":
-                w "This isn't fair."
-                w "It's more complicated than that."
-                w "Do you want me to retread a thousand arguments? For what?"
-                w "I'm already at your whim whenever you want."
-                w "Ask something else."
-            "> WHY COULDN'T YOU LOVE ME?":
-                w "This isn't fair."
-                w "It's more complicated than that."
-                w "Do you want me to retread a thousand arguments? For what?"
-                w "I'm already at your whim whenever you want."
-                w "Ask something else."
+            "> THEN WHY DID YOU LEAVE?\n\n> WHY COULDN'T YOU LOVE ME?":
+                    w "This isn't fair."
+                    w "It's more complicated than that."
+                    w "Do you want me to retread a thousand arguments? For what?"
+                    w "I'm already at your whim whenever you want."
+                    w "Ask something else."
     l "You said you loved me before."
     l "Did you lie?"
     w "Please. Stop this."
     l "How do I know if you've been lying?"
     l "How would I know?"
     l "Have you been lying this whole time?"
-    w "..." 
+    w "…" 
     w "If you really believed that, you would shoot me out."
     n "Your jaw aches with how hard you've grit your teeth. There's a weight over your back as you bend over the monitor."
     n "You open the contamination protocols."
     label act2meattorture:
         menu:
-            "> DIAGNOSTIC SURGERY":
+            "> DIAGNOSTIC SURGERY" if surgery_deny == False:
                 n "A surgery undertaken to track down any particularly elusive contaminant. An entry point would be cut down the abdomen so that the major bodily organs could then be scanned. Upon detection, foreign bodies would be removed, disposed of, then separated for analysis."
                 n "Do you want to proceed?"
                 menu:
                     "> YES.":
                         n "No."
+                        jump act2meattorture
                     "> NO.":
-                        n "surgery_deny=True"
-            "> OXYGEN DEPRIVATION":
+                        $ surgery_deny = True
+                        jump act2meattorture
+            "> OXYGEN DEPRIVATION" if oxygen_deny == False:
                 n "In which the oxygen of containment is lowered to the point that the body is driven into a state of shock, thus rendering them unconscious and prone. Pathogens and viral bodies deteriorate under these extreme conditions and parasites either fall into stasis or wither and die."
                 n "Do you want to proceed?"
                 menu:
                     "> YES.":
                         n "No."
+                        jump act2meattorture
                     "> NO.":
-                        n "oxygen_deny=True"
+                        $ oxygen_deny = True
+                        jump act2meattorture
     # ONLY AFTER SELECTING NO ON BOTH PREVIOUS OPTIONS
     n "You enter your credentials, unlocking a list of other possible options. You scroll through. One stands out."
     label act2meatect:
@@ -160,42 +148,43 @@ label meat_route:
                 menu:
                     "> YES.":
                         n "The panels of the wall shift behind her. Before she can move, two arms latch onto her. She tries, fails, to rip herself away."
-    label act2meatquestion11:
+    label act2meatquestion10:
         menu:
             "> WHO ARE YOU?":
                 w "I've already told you!"
                 n "A dialogue prompt for the application of the ECT nodes appears. You once again enter your credentials. The amounto f allowed amperes rises."
                 n "You raise the mA to 15. Her body jolts."
                 w "Alice!"
-    label act2meatquestion12:
+    label act2meatquestion11:
         menu:
             "> WHO ARE YOU?":
                 w "Enough! Enough!!"
                 n "You apply 25 mA. She folds into herself. She cries out."
                 w "CHARLOTTE TURNER! MY NAME IS CHARLOTTE TURNER!"
-    label act2meatquestion13:
+    label act2meatquestion12:
         menu:
             "> WHO ARE YOU?": 
                 n "You apply 100 mA. She spasms. She falls off the bed. The arms hold her upright. She's shaking."
                 w "YOUR WIFE! YOUR WIFE!"
-    label act2meatquestion14:
+    label act2meatquestion13:
         menu:
             "> WHO ARE YOU?":
                 n "You apply 150 mA. She can't scream anymore. She doesn't move. She drools. Burns blacken her arms."
                 n "Your mouse whips across the screen to pull open her vitals. Her heart monitor dances across its readings. Still alive."
                 n "You're practically heaving your breaths. You can see your pulse at the corner of your vision."
-    label act2meatquestion15:
+    label act2meatquestion14:
         menu:
             "> Charlotte?":
                n "She doesn't answer."
                l "Charlotte?"
+    hide screen airlockbutton
     # END ACT 2
     # TRANSITION TO BRIDGE
     scene bridge:
         size(1920, 1080)
 
     n "You pass out copies of your findings. Every test, analysis, and scan reaches the same conclusion: no contamination."
-    l "She's clesar. As I knew she would be."
+    l "She's clear. As I knew she would be."
     l "There was never anything to be concerned about."
     n "The crew reads over your findings. There's a few nods, a few whispers. A room full of relieved faces. Except for one."
     n "Knight scowls at your report. They step forward."
@@ -217,16 +206,16 @@ label meat_route:
     l "She's safe."
     n "Sutton's brows knit together as she reviews your papers. She takes a deep breath."
     s "No one wants to doubt you. Or her."
-    s "But... I don't want to dismiss any concern."
+    s "But… I don't want to dismiss any concern."
     s "Did she ever explain what happened to her helmet?"
     l "It came off during the attack. She removed it to free herself."
     k "Convenient."
-    s "..."
+    s "…"
     s "Your report seems sound. I don't see anything that sticks out to me as insecure."
     s "We have no reason to believe Dr. Langston's assessment isn't accurate."
     s "We can hesitate in the way of fear all we like. But at the end of the day, the call we make could end an innocent woman's life."
     s "Is that a call you're willing to make?"
-    k "..."
+    k "…"
     k "No."
     k "I don't know."
     s "We've left her in there long enough."
@@ -258,7 +247,7 @@ label meat_route:
     n "It's over."
     n "Sutton smiles at her. Turner doesn't acknowledge her."
     s "Good to see you back, Turner."
-    s "...I'll give you some room."
+    s "…I'll give you some room."
     n "She waves, then takes her leave."
     n "She holds you tighter."
     l "We can still make things work."
@@ -277,15 +266,13 @@ label meat_route:
     n "The door slides open. The scent hits you first. Raw iron. A heavy metallic cloud that clings to your soft palate. Red rust stains the exterior hall to the bedroom."
     n "Your hands begin to shake."
     n "You pass by bits and pieces of your crew. People you've patched up. People who have come to you in need."
-    n "The engineer vivisected in the hall."
-    n ">> The computer technician in chunks in the recreation room."
-    n ">>> The geologist run through in the cafeteria."
+    n "The engineer vivisected in the hall.{w} The computer technician in chunks in the recreation room.{w} The geologist run through in the cafeteria."
     n "You make it to the bridge to find Sutton laying in her own viscera. Her mouth gapes open, mid-shout, arm outstreteched. Toward the receiver, you guess. Not that it would have done anyone any good."
     n "It's hard to feel anything at all. There's a hollow void where your feelings should be."
     n "Footfall reverberates across the metallic corridor behind you. You turn as Knight grabs you by the shoulders, shaking you."
     k "WHAT DID YOU DO?"
     n "You only stare back. They shove you aside, manning the control deck. They hesitate, lost in all the buttons and dials, before grabbing Sutton's headset and receiver."
-    k "MAYDAY, MAYDAY, SOFT TOUCH TO ARIADNE, THERE'S SOMETHING ON OUR SHIP, THERE'S SOMETHING —"
+    k "MAYDAY, MAYDAY, SOFT TOUCH TO ARIADNE, THERE'S SOMETHING ON OUR SHIP, THERE'S SOMETHING—"
     n "A dark blur whips past you, coiling around Knight's throat. The remaining words choke out of them as they sputter, clawing at their bindings."
     n "You followt the shape back to the source. She's standing in the threshold of the bridge, blood soaked, arm extended. A vine-like tendril extends from an opening in her wrist. Her expression is vacant. Her eyes move slowly towards you."
     l "I thought —"
