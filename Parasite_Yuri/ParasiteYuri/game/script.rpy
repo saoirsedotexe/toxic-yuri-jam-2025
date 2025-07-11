@@ -1,57 +1,17 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-default vitals = False
+﻿default vitals = False
 default scans = False
-default haircut = "short"
+default haircut = "long"
 default surgery_deny = False
 default oxygen_deny = False
 default meat = 0
 default candy = 0
 
-image wife normal:
-    choice( haircut == "long" ):
-        "images/WifeSprite/neutral/wife_neutral_long.png"
-    choice( haircut == "short" ):
-        "images/WifeSprite/neutral/wife_neutral_short.png"
-        
-image wife disdain:
-    choice( haircut == "long" ):
-        "images/WifeSprite/disdain/wife_disdain_long.png"
-    choice( haircut == "short" ):
-        "images/WifeSprite/disdain/wife_disdain_short.png"
-        
-image wife scared:
-    choice( haircut == "long" ):
-        "images/WifeSprite/scared/wife_scared_long.png"
-    choice( haircut == "short" ):
-        "images/WifeSprite/scared/wife_scared_short.png"
-        
-image wife side:
-    choice( haircut == "long" ):
-        "images/WifeSprite/side/wife_side long.png"
-    choice( haircut == "short" ):
-        "images/WifeSprite/side/wife_side short.png"
-
-# The game starts here.
-
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "cell.png" or "cell.jpg") to the
-    # images directory to show it.
+    $ say_style = "Interrogation"
 
-    $ say_style = "Interrogation" #Cutscene or Interrogation
-
-    scene space:
+    scene space with fade:
         size(1920, 1080)
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "wife.png" to the images
-    # directory.
-
-    #show love bullet 1
     
     l "…"
     l "…"
@@ -68,10 +28,9 @@ label start:
     n "You carry the weight."
     n "Something beeps."
     
-    #[TRANSITION TO BEDROOM]
-    $ say_style = "Cutscene" #Cutscene or Interrogation
+    $ say_style = "Cutscene"
     
-    scene bedroom_dark:
+    scene bedroom_dark with fade:
         size(1920, 1080)
     
     n "And then you wake up. Your pager trills."
@@ -84,13 +43,11 @@ label start:
     l "I’m on my way."
     n "You get out of bed."
     
-    #[TRANSITION TO BRIDGE]
-    
-    scene bridge:
+    scene bridge_grounded with fade:
         size(1920, 1080)
     
     n "By the time you arrive at the bridge, the COMMS OFFICER stands hunched over his control deck with his hands pressed to both sides of his headset. The ship’s engineer works hard at something on the ship’s panel, only to turn back to the COMMS OFFICER, and shake his head."
-    show comms_officer
+    show comms_officer with dissolve
     n "The COMMS OFFICER taps on his microphone."
     s "Captain, do you read me? THE ECOLOGIST. THE NAVIGATOR. Do you read?"
     l "Have we lost signal?"
@@ -151,11 +108,11 @@ label start:
     n "As ECOLOGIST approaches, they start waving their arms at the ship. Their voice shouts into the NAVIGATOR’S distant receiver."
     k "STOP! STOP!"
     
-    scene quarantine_room_v2:
+    scene quarantine_room_v2 with irisin:
         size(1920, 1080)
     
     n "You stare at the monitors before you. Her various charts fluctuate with every breath, every heartbeat, every muscle twitch. Meanwhile, she sits on the floor, chin on her knees, staring at the ground."
-    show wife normal
+    show wife normal at interrogation with dissolve
     # show screen airlockbutton
     n "Your heart clenches."
     n "COMMS OFFICER walks up behind you. His gaze is solemn. It looks like he hasn’t slept since the funeral."
@@ -181,8 +138,6 @@ label start:
                     jump act1
                 else:
                     jump checks1
-
-    # These display lines of dialogue.
     
     # q1 name is meat title is candy
     # q2 state of mission candy what is assignment meat
@@ -195,10 +150,9 @@ label start:
     scene act1
     label act1:
     
-    scene bedroom_light_mode:
+    scene bedroom_light_mode with irisin:
         size(1920, 1080)
     label act2:
-    # [TRANSITION TO BEDROOM]
     
     $ say_style = "Cutscene"
     n "The centrifuge spins and spins and spins. You watch it absentmindedly from your desk chair. This is its third cycle. Your leg bounces beneath your desk."
@@ -206,7 +160,7 @@ label start:
     n "The samples beneath the glass still don’t make any sense to you. Nothing’s wrong with them, of course. But there’s just an oddness about them. You think your eyes are tricking you into seeing things that aren’t there, like looking at the walls of a thunderstorm and swearing you can see it spinning into a twister."
     n "You reach across for your desk for the research notes written by your predecessor concerning this planet and its hazards. You flip through the pages looking for… you’re not even sure, at this point. Anything to rule out your worst fears."
     n "Your eye falls onto a subsection written about some sort of creature. Prehensile tendrils, skin secretions, known to be aggressive. You lean in to read more, but there’s a knock at your door."
-    show ecologist_cast
+    show ecologist_cast with dissolve
     k "I hope you don’t mind me stopping by. But it’s not like you’ve been by the infirmary much."
     n "They’re still bandaged up from the attack. Their arm had to be put into a cast. Their lips purse at you."
     l "You should be resting."
@@ -233,18 +187,13 @@ label start:
     l "Shit."
     n "You take off running."
     
-    if haircut == "short":
-        scene they_call_me_doctor_desk_short:
-            size(1920, 1080)
-    else:
-        scene they_call_me_doctor_desk_long:
-            size(1920, 1080)
-    
+    scene desk with irisin:
+        size(1920, 1080)
     n "The feed of the quarantine hatch is clouded over with decontamination fog. Hands shaking, you remotely turn on a fan to filter it out."
     n "As the haze clears, Turner sits squarely in the center of the room, next to a piece of wall panel. Frayed wires and inner piping now sit exposed in a small rectangle."
     n "You press the monitor’s transmitter to the ship’s bridge."
     n "We’re all good. Everything’s under control."
-    show comms_officer:
+    show comms_officer with dissolve:
         xalign 0.2
     s "What happened?"
     n "You take a deep breath."
@@ -256,10 +205,9 @@ label start:
     n "You turn off the transmitter and immediately click open the startup prompt."
     show quarantine_room_v2 with fade:
         size(1920, 1080)
-    show wifeside [haircut]:
-        xalign 0.7
-    $ say_style = "Interrogation"
+    show wifeside at interrogation with dissolve
     
+    $ say_style = "Interrogation"
     label act2question1:
         menu:
             "> WHAT HAPPENED?":
@@ -298,9 +246,13 @@ label start:
                 w "You already asked me this."
                 l "Tell me again."
                 w "…Okay."
+                hide wifeside
+                show wife normal at interrogation with dissolve
                 w "We were attacked. The Captain was killed and dropped our equipment. Knight managed to grab some of it and get away. It grabbed me, but I fought it and wriggled away. My helmet went off with it."
+                show wife scared at interrogation with dissolve
                 w "I was trying to come home to you."
                 l "After everything that had happened that morning, you were really thinking of me?"
+                show wife normal at interrogation with dissolve
                 w "We’ve fought before."
                 l "It wasn’t like before."
                 w "Why are you doing this? I don’t know what you want, Alice."
@@ -313,9 +265,13 @@ label start:
                 w "You already asked me this."
                 l "Tell me again."
                 w "…Okay."
+                hide wifeside
+                show wife normal at interrogation with dissolve
                 w "We were attacked. The Captain was killed and dropped our equipment. Knight managed to grab some of it and get away. It grabbed me, but I fought it and wriggled away. My helmet went off with it."
+                show wife scared at interrogation with dissolve
                 w "I was trying to come home to you."
                 l "After everything that had happened that morning, you were really thinking of me?"
+                show wife normal at interrogation with dissolve 
                 w "We’ve fought before."
                 l "It wasn’t like before."
                 w "Why are you doing this? I don’t know what you want, Alice."
@@ -381,9 +337,12 @@ label start:
                 w "But even if it did, I knew you’d be the only one to see it."
                 w "I’m in your care, after all."
                 $ meat += 1
+    hide wifeside
+    show wife normal at interrogation
     n "All of a sudden, she stares into the camera for a moment. You get goosebumps."
     w "Can I ask you something?"
     n "You open your mouth to speak, then close it. You glance at the procedures listed on your monitor."
+    show wife disdain at interrogation with dissolve
     n "She tilts her head."
     w "Are you there?"
     label act2question7:
@@ -411,6 +370,7 @@ label start:
                 w "But if you want me to just be a lab rat you prod at, fine."
                 w "I guess you finally have me where you want me."
                 $ meat += 13
+    show wife normal at interrogation with dissolve
     n "You’re getting lightheaded. All of this is becoming too much. You hover your cursor back over the contamination protocols."
     n "You’re presented with new options and accompanying instructions."
     label act2torture:
