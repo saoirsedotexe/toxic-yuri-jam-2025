@@ -19,7 +19,7 @@ label candy_route:
 
     #[TRANSITION TO MONITOR]
 
-    if haircut:
+    if haircut == "short":
         scene they_call_me_doctor_desk_short:
             size(1920, 1080)
     else:

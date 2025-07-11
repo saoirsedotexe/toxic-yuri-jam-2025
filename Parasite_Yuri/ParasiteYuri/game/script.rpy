@@ -4,9 +4,36 @@
 # name of the character.
 default vitals = False
 default scans = False
-default haircut = False
+default haircut = "short"
 default surgery_deny = False
 default oxygen_deny = False
+default meat = 0
+default candy = 0
+
+image wife normal:
+    choice( haircut == "long" ):
+        "images/WifeSprite/neutral/wife_neutral_long.png"
+    choice( haircut == "short" ):
+        "images/WifeSprite/neutral/wife_neutral_short.png"
+        
+image wife disdain:
+    choice( haircut == "long" ):
+        "images/WifeSprite/disdain/wife_disdain_long.png"
+    choice( haircut == "short" ):
+        "images/WifeSprite/disdain/wife_disdain_short.png"
+        
+image wife scared:
+    choice( haircut == "long" ):
+        "images/WifeSprite/scared/wife_scared_long.png"
+    choice( haircut == "short" ):
+        "images/WifeSprite/scared/wife_scared_short.png"
+        
+image wife side:
+    choice( haircut == "long" ):
+        "images/WifeSprite/side/wife_side long.png"
+    choice( haircut == "short" ):
+        "images/WifeSprite/side/wife_side short.png"
+
 # The game starts here.
 
 label start:
@@ -63,7 +90,7 @@ label start:
         size(1920, 1080)
     
     n "By the time you arrive at the bridge, the COMMS OFFICER stands hunched over his control deck with his hands pressed to both sides of his headset. The ship’s engineer works hard at something on the ship’s panel, only to turn back to the COMMS OFFICER, and shake his head."
-    show stickfigure
+    show comms_officer
     n "The COMMS OFFICER taps on his microphone."
     s "Captain, do you read me? THE ECOLOGIST. THE NAVIGATOR. Do you read?"
     l "Have we lost signal?"
@@ -128,8 +155,8 @@ label start:
         size(1920, 1080)
     
     n "You stare at the monitors before you. Her various charts fluctuate with every breath, every heartbeat, every muscle twitch. Meanwhile, she sits on the floor, chin on her knees, staring at the ground."
-    show wife_base
-    show screen airlockbutton
+    show wife normal
+    # show screen airlockbutton
     n "Your heart clenches."
     n "COMMS OFFICER walks up behind you. His gaze is solemn. It looks like he hasn’t slept since the funeral."
     s "I hope you know what you’re doing."
@@ -157,6 +184,14 @@ label start:
 
     # These display lines of dialogue.
     
+    # q1 name is meat title is candy
+    # q2 state of mission candy what is assignment meat
+    # q3 feeling meat experienced unusual candy
+    # q4 describe incident meat helmet candy
+    # q5 sorry meat gone candy
+    # q6 talk about that morning meat other choice is candy
+    # q7 epidermal candy blood meat
+    
     scene act1
     label act1:
     
@@ -171,7 +206,7 @@ label start:
     n "The samples beneath the glass still don’t make any sense to you. Nothing’s wrong with them, of course. But there’s just an oddness about them. You think your eyes are tricking you into seeing things that aren’t there, like looking at the walls of a thunderstorm and swearing you can see it spinning into a twister."
     n "You reach across for your desk for the research notes written by your predecessor concerning this planet and its hazards. You flip through the pages looking for… you’re not even sure, at this point. Anything to rule out your worst fears."
     n "Your eye falls onto a subsection written about some sort of creature. Prehensile tendrils, skin secretions, known to be aggressive. You lean in to read more, but there’s a knock at your door."
-    #show knight sprite with cast
+    show ecologist_cast
     k "I hope you don’t mind me stopping by. But it’s not like you’ve been by the infirmary much."
     n "They’re still bandaged up from the attack. Their arm had to be put into a cast. Their lips purse at you."
     l "You should be resting."
@@ -198,7 +233,7 @@ label start:
     l "Shit."
     n "You take off running."
     
-    if haircut:
+    if haircut == "short":
         scene they_call_me_doctor_desk_short:
             size(1920, 1080)
     else:
@@ -209,17 +244,25 @@ label start:
     n "As the haze clears, Turner sits squarely in the center of the room, next to a piece of wall panel. Frayed wires and inner piping now sit exposed in a small rectangle."
     n "You press the monitor’s transmitter to the ship’s bridge."
     n "We’re all good. Everything’s under control."
+    show comms_officer:
+        xalign 0.2
     s "What happened?"
     n "You take a deep breath."
     l "Nothing. Part of the wall fell off."
     s "Are you sure?"
     l "I’m sure."
     s "Alright. Copy."
+    hide comms_officer with dissolve
     n "You turn off the transmitter and immediately click open the startup prompt."
+    show quarantine_room_v2 with fade:
+        size(1920, 1080)
+    show wifeside [haircut]:
+        xalign 0.7
+    $ say_style = "Interrogation"
     
     label act2question1:
         menu:
-            "> WHAT HAPPENED?\n\n> WHAT DID YOU DO?":
+            "> WHAT HAPPENED?":
                 w "I just… panicked. I feel suffocated. I can’t stay here."
                 w "Don’t you understand the position I’m in? People already don’t trust us. This is only going to make things worse."
                 w "You don’t understand what it’s like. You don’t know how alone I feel. What else am I supposed to do?"
@@ -233,10 +276,25 @@ label start:
                 w "…"
                 w "Do you think something’s wrong?"
                 l "Let’s begin the questioning."
-    $ say_style = "Interrogation"
+                $ meat += 1
+            "> WHAT DID YOU DO?":
+                w "I just… panicked. I feel suffocated. I can’t stay here."
+                w "Don’t you understand the position I’m in? People already don’t trust us. This is only going to make things worse."
+                w "You don’t understand what it’s like. You don’t know how alone I feel. What else am I supposed to do?"
+                l "You think I don’t know what loneliness feels like?"
+                w "It isn’t the same." 
+                w "You chose the life you had. You stayed because you wanted to."
+                w "None of this was my choice."
+                l "But coming here was. Leaving home, for who knows how long, putting yourself in harm’s way."
+                l "If it wasn’t for me, you’d be stuck planetside. At least you have assured safety here."
+                l "Just so long as the others don’t think something’s wrong."
+                w "…"
+                w "Do you think something’s wrong?"
+                l "Let’s begin the questioning."
+                $ candy += 1
     label act2question2:
         menu:
-            "> DESCRIBE WHAT HAPPENED AT SITE C.\n\n> WHAT HAPPENED TO YOUR HELMET?":
+            "> DESCRIBE WHAT HAPPENED AT SITE C.":
                 w "You already asked me this."
                 l "Tell me again."
                 w "…Okay."
@@ -250,17 +308,35 @@ label start:
                 n "She stares at the camera, at a loss. She tries to say something, but thinks better of it. Her teeth lock together."
                 w "We have to get out of this first."
                 w "Keep asking your questions."
+                $ meat += 1
+            "> WHAT HAPPENED TO YOUR HELMET?":
+                w "You already asked me this."
+                l "Tell me again."
+                w "…Okay."
+                w "We were attacked. The Captain was killed and dropped our equipment. Knight managed to grab some of it and get away. It grabbed me, but I fought it and wriggled away. My helmet went off with it."
+                w "I was trying to come home to you."
+                l "After everything that had happened that morning, you were really thinking of me?"
+                w "We’ve fought before."
+                l "It wasn’t like before."
+                w "Why are you doing this? I don’t know what you want, Alice."
+                l "I want to make things work."
+                n "She stares at the camera, at a loss. She tries to say something, but thinks better of it. Her teeth lock together."
+                w "We have to get out of this first."
+                w "Keep asking your questions."
+                $ candy += 1
     label act2question3:
         menu:
             "> HAS YOUR CONDITION CHANGED SINCE WE LAST SPOKE?":
                 w "No."
                 w "I feel the same."
+                $ candy += 1
             "> WHAT DO YOU DO WHEN I’M NOT HERE?":
                 w "What is there to do?"
                 w "Stare at the wall. Count the wall tiles. Minus one, now."
-                if haircut:
+                if haircut == "short":
                     w "I used to braid my hair."
                 w "I mostly just think."
+                $ meat += 1
     label act2question4:
         menu:
             "> HAVE YOU EXPERIENCED ANY OTHER EMOTIONAL ABNORMALITIES?":
@@ -268,23 +344,27 @@ label start:
                 w "I’m trying to keep it together. I am."
                 w "But this is just…"
                 w "I don’t even know how long it’s been."
+                $ candy += 1
             "> WHAT DO YOU THINK ABOUT?":
                 w "You."
                 w "But also… the crew."
                 w "What might happen if something is wrong."
                 w "What I could’ve done differently."
+                $ meat += 1
     label act2question5:
         menu:
             "> DO YOU FEEL LIKE YOURSELF?":
                 w "Not in the way you mean."
                 w "I’m me. I know I’m me."
                 w "But at the end of this, I don’t know if I’ll be the same person that I was before."
+                $ candy += 1
             "> WHAT COULD YOU HAVE DONE DIFFERENTLY?":
                 w "I keep running through what happened. It’s on playback. Over and over again."
                 w "Maybe if I didn’t hesitate. If I just ran from it."
                 w "But when the Captain tried to step in front of us, I froze. I didn’t want to leave them behind."
                 w "Is it better to flee for your own sake? Or fight even when hope is lost?"
                 w "What do you think?"
+                $ meat += 1
     label act2question6:
         menu:
             "> WERE YOU INTENDING TO ESCAPE?":
@@ -293,12 +373,14 @@ label start:
                 w "I don’t know."
                 w "I guess the answer to your question is yes. Even if, subconsciously, I knew better."
                 w "I just don’t want to be here anymore."
+                $ candy += 1
             "> WHAT IF SOMEONE SAW YOU?":
                 w "Saw what?"
                 w "Oh. This."
                 w "I didn’t think the alarm would trigger, for one thing."
                 w "But even if it did, I knew you’d be the only one to see it."
                 w "I’m in your care, after all."
+                $ meat += 1
     n "All of a sudden, she stares into the camera for a moment. You get goosebumps."
     w "Can I ask you something?"
     n "You open your mouth to speak, then close it. You glance at the procedures listed on your monitor."
@@ -322,12 +404,13 @@ label start:
                 n "She sits, frozen. But the facade cracks. She gives you a soft smile. She almost even laughs."
                 w "I’ll keep waiting for you to see it, then."
                 w "That’s all."
+                $ candy += 1
             "> NO":
                 w "This has to be mutual, you know."
                 w "I want to trust you. I’m forced to trust you."
                 w "But if you want me to just be a lab rat you prod at, fine."
                 w "I guess you finally have me where you want me."
-                # big points for murder route
+                $ meat += 13
     n "You’re getting lightheaded. All of this is becoming too much. You hover your cursor back over the contamination protocols."
     n "You’re presented with new options and accompanying instructions."
     label act2torture:
@@ -350,6 +433,7 @@ label start:
                         l "Whatever it takes."
                         n "You bite your cheek as you watch it happen. The injection, the jump of her skin, the submission. Your knuckles go white against the surface of your desk. Your eyes burn."
                         n "She relaxes, finally. The arms recede. You taste blood."
+                        $ meat += 1
                     "> NO":
                         jump act2torture
             "> INSERT PROBE":
@@ -377,44 +461,12 @@ label start:
                         w "Just think about it."
                         n "You feel a surge of cold."
                         n "You intend to."
+                        $ candy += 1
                     "> NO":
                         jump act2torture
-    n "END OF CONTENT"
-    # l "I'm doctor misery. She needs medicine drug to live."
-
-    # w "I would like medicine drug."
-
-    # p "If you don't give her medicine drug I'll suck you silly"
-
-    # show stickfigure
-
-    # s "I too am in this episode"
-
-    # show stickfigure sad
-
-    # s "I am sad now"
-
-    call screen buttons()
-
+    if meat >= candy:
+        jump meat_route
+    else:
+        jump candy_route
     return
-
-# Two separate routes: one where you get with the parasite and things are awesome 
-# and the other where you don't get with the parasite and the parasite kills everyone
-
-# Test choice: Medicine drug or no medicine drug
-
-# Tutorial template code
-
-screen buttons():
-    add "bg.png"
-    hbox:
-        imagebutton auto "images/medicine_%s.png" action Jump("candy_route")
-        imagebutton auto "images/no-medicine_%s.png" action Jump("meat_route") 
-  
-screen airlockbutton():
-    add "airlock.png"
-    hbox xalign 0.5:
-        imagebutton auto "images/airlock_%s.png" action Jump("airlock")
- 
-
     # This ends the game.

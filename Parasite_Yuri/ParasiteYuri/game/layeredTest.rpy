@@ -1,21 +1,14 @@
-layeredimage stickfigure:
-    always:
-        "body"
-
-    group outfit:
-        attribute greenshirt default:
-            "greenshirt"
-        attribute blueshirt:
-            "blueshirt"
-    group hair:
+layeredimage wifeside:
+    group base:
         attribute long default:
-            "long"
-        attribute shaved:
-            "shaved"
-    
-    group face:
-        attribute happy default:
-            "happy"
-        attribute sad:
-            "sad"
+            "wife_side_long"
+        attribute short:
+            "wife_side_short"
+    group eyes:
+        attribute away default:
+            "looking_away"
+        attribute towards:
+            "looking_at_you"
+        attribute tears:
+            "tears"
     

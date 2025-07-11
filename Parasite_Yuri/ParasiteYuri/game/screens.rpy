@@ -116,7 +116,7 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who" xpos (0 if say_style == "Interrogation" else 40) ypos (20 if say_style == "Interrogation" else 25)
+                text who id "who" xpos (15 if say_style == "Interrogation" else 40) ypos (20 if say_style == "Interrogation" else 25)
                 at transform:
                     alpha 1.0
         text what id "what" xpos (20 if say_style == "Interrogation" else 50) ypos 75 xsize (950 if say_style == "Interrogation" else 1900)
@@ -173,7 +173,10 @@ style say_dialogue:
 
     adjust_spacing False
 
-
+screen airlockbutton():
+    add "airlock.png"
+    hbox xalign 0.5:
+        imagebutton auto "images/airlock_%s.png" action Jump("airlock")
 
 ## Input screen ################################################################
 ##
