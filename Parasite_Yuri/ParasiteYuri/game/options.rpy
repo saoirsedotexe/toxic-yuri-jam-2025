@@ -30,6 +30,54 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+
+CREDITS:
+
+{a=https://saoirsedotpdf.tumblr.com/}saoirse.exe{/a}: Director, lead coder
+
+{a=https://x.com/ferocitas/}Alex Goforth{/a}: Writer
+
+{a=https://urbestangelboy.itch.io/}August A.{/a}: Sprites
+
+Carter H.: Sprites
+
+{a=https://bsky.app/profile/exclusivelybards.bsky.social}Bee{/a}: Backgrounds + CGs
+
+Patt: Coding
+
+Emma Joy: Editor
+
+
+WITH ASSISTANCE FROM:
+
+Kevin: Title theme music
+
+{a=https://x.com/SUMMONFISH/}SUMMONFISH{/a}: Investigation theme + interrogation theme music
+
+Vinny: Coding assistance
+
+
+SPECIAL THANKS:
+
+Kat lesbiangiratina: pervert consultant
+
+Rebel: asked for a special thanks
+
+Test readers <3
+
+
+FONT CREDITS:
+
+Title font: {a=https://www.dafont.com/blue-screen.font}Blue Screen Personal Use{/a}
+
+Menu font: {a=https://fontesk.com/ft88-typeface/}FT88 regular{/a}
+
+Character names/jobs font: {a=https://velvetyne.fr/fonts/terminal-grotesque/}Terminal Grotesque{/a}
+
+Terminal Grotesque by Raphaël Bastide, with the contribution of Jérémy Landes. Distributed by velvetyne.fr.
+
+Character Speech & Narration: {a=https://departuremono.com/}Departure mono{/a}
+
 """)
 
 

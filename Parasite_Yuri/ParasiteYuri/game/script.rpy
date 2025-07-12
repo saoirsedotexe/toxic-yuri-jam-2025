@@ -76,22 +76,19 @@ label start:
     #SPRITE NOTE: I’d love if it were possible for the ECOLOGIST’S sprite to fade in and out during this scene to correlate with the signal going in/out
     #FOR KNIGHT- SPRITE: Ecologist_hurt (or whatever I name the spacesuit vers.)
     show comms_officer at midleft with move
-    show ecologist_cast at interrogation with pixellate
+    show ecologist_shaded at interrogation with pixellate
     k "Mayday, mayday, do you read me?"
     n "Acid fills your stomach. Your nails bite into your palms. You brush past Sutton to lean out the viewport."
     s "Knight, what’s going on?"
     l "Where’s Turner?"
     n "There’s a jostling of clothing and gear. She’s running."
-    show ecologist_cast at interrogation
     k "There’s something — It got them. And — coming back."
     n "It’s like you’ve been vacuum-sealed from the inside. A tightness, an unrelenting squeeze threatens your collapse."
     s "What do you mean it got them? Knight?"
-    show ecologist_cast at interrogation
     k "—I can’t—"
     s "Knight—"
     k "They’re gone."
     n "There’s a ringing in your ears. Your hands shake. You feel a compulsion to vomit."
-    show ecologist_cast at interrogation
     k "Start the ship!"
     n "The engineer breaks from his trance and moves to the control panel. They wait for Sutton’s orders."
     l "We need to find her."
@@ -99,7 +96,7 @@ label start:
     n "Sutton hesitates. She won’t look at you. Knight comes closer and closer, checking over her shoulder. It becomes more and more obvious she’s injured. Their shoulder swings loose in her suit; she has that same arm clutched to their sternum."
     k "Sutton!"
     n "She squeezes her eyes shut. Then turns for the engineer."
-    hide ecologist_cast with dissolve
+    hide ecologist_shaded with dissolve
     show comms_officer at center with move
     s "Open the hatch. Then start us."
     n "The engineer brings the ship’s engines to life. The bridge rumbles with it. You grab her by the shoulder."
@@ -115,7 +112,6 @@ label start:
     k "Turner?"
     n "You let out a breath you didn’t know you were holding. Everything releases all at once."
     n "Turner escapes into the clearing, her suit tattered and fluttering behind her. She waves her arms at the ship. Her voice shouts into Knight’s distant receiver."
-    # SPRITE NOTE: No sprite for Turner yet as she isn’t on the ship . . and frankly I don’t want to draw a spacesuit vers for her rn. Smiles :-)
     w "STAND BY! STAND BY!"
     n "Your heart beats again. Thank god. Thank god."
     n "Sutton digs her fingers into her eyes, dragging her hands down her face. {w}But then she squints."
@@ -130,7 +126,7 @@ label start:
     scene quarantine_room_v2 with fade:
         size(1920, 1080)
     n "With your medical kit in hand, you rush down the ship’s infrastructure to the exit ramp. Your fingers lock into place around the handle."
-    show ecologist_cast with dissolve
+    show ecologist_spacesuit with dissolve
     n "You arrive and Knight stands waiting for you. She’s slumped against a wall, recovering. The door outside is closed. She won’t make eye contact."
     l "Where is she?"
     n "They glance at the glowing communication receiver. You slam your palm into it."
