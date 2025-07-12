@@ -226,7 +226,7 @@ label start:
     show screen airlockbutton
     $ say_style = "Interrogation"
     play music "InterrOGGationloop.ogg"
-    l "This is Doctor Langston, A initiating quarantine procedure questioning. Are you of sufficient body and mind to proceed?"
+    l "This is Doctor Langston, A. initiating quarantine procedure questioning. Are you of sufficient body and mind to proceed?"
     n "She turns to face the speaker. There’s a light in her eyes."
     show wife normal at interrogation with dissolve
     w "Alice."
