@@ -175,7 +175,7 @@ style say_dialogue:
 
 screen airlockbutton():
     add "airlock.png"
-    hbox xalign 0.5:
+    hbox xalign 1 yalign 0.5:
         imagebutton auto "images/airlock_%s.png" action Jump("airlock")
 
 ## Input screen ################################################################

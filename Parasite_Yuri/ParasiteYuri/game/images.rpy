@@ -33,6 +33,12 @@ image bugsex2:
         "images/CGs/bug_sex_2_long.png"
     choice( haircut == "short" ):
         "images/CGs/bug_sex_2_short.png"
+        
+image strangle:
+    choice( haircut == "long" ):
+        "images/CGs/strangle_long.png"
+    choice( haircut == "short" ):
+        "images/CGs/strangle_short.png"
             
 image murder:
     choice( haircut == "long" ):
@@ -48,3 +54,6 @@ image pinned:
         
 transform interrogation:
     xalign 0.75
+    
+transform midleft:
+    xalign 0.25

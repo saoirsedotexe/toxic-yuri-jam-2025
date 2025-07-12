@@ -5,9 +5,18 @@ layeredimage wifeside:
         "wife_side_short"
     group eyes:
         attribute away default:
-            "looking_away"
+            "away"
         attribute towards:
-            "looking_at_you"
+            "at_you"
+    group mouth:
+        attribute smile:
+            "smile"
+        attribute frown:
+            "frown"
+    group tears:
         attribute tears:
             "tears"
+    group darkness:
+        attribute darkness:
+            "darkness"
     

@@ -1,20 +1,23 @@
 ﻿default vitals = False
 default scans = False
-default haircut = "long"
+default audiolog = False
+default release = False
 default surgery_deny = False
 default oxygen_deny = False
+default haircut = "long"
 default meat = 0
 default candy = 0
 
 label start:
 
+#  PUT THE DAMN CREDITS IN
+
     $ say_style = "Interrogation"
+    play music "Investigationloop.ogg"
 
     scene space with fade:
         size(1920, 1080)
     
-    l "…"
-    l "…"
     n "You are home."
     n "You are finally home."
     n "The carpet beneath your feet. {w}The soft of your own bed. {w}The quiet. The quiet."
@@ -24,7 +27,7 @@ label start:
     n "The door oozes. {w}The shelves go concave. {w}The bed splits."
     n "Fire eats at the foundation."
     n "You clutch the infrastructure in place. It comes through your fingers like candle wax. But you stand firm."
-    n "What’s left of the house forms a hollow around you. You keep the mantle from toppling in. You force the engravings to hold their shape."
+    n "What’s left of the house forms a hollow around you. You keep the mantle from toppling in. You force the engravings to hold their shape until it’s you, too, holding shape. Entombed in a weight of your own making. A gnat forever encased in amber."
     n "You carry the weight."
     n "Something beeps."
     
@@ -43,118 +46,393 @@ label start:
     l "I’m on my way."
     n "You get out of bed."
     
+    label act1:
     scene bridge_grounded with fade:
         size(1920, 1080)
     
-    n "By the time you arrive at the bridge, the COMMS OFFICER stands hunched over his control deck with his hands pressed to both sides of his headset. The ship’s engineer works hard at something on the ship’s panel, only to turn back to the COMMS OFFICER, and shake his head."
+    n "Metallic thumps reverberate around you as you approach the bridge. These corridors feel like something’s swallowed you whole, too many nooks and crannies, too many winding parts."
+    n "You never thought there would be anything worse than hospitals. But you hate this ship. You hate these halls. You hate the chrome interiors, you hate the lining pipes, you hate the vertigo from the artificial gravity, you hate your uniforms, you hate the viewports of nothingness, you hate the vacuum, you hate the silence."
+    n "It has been one year, nine months, and nineteen days that you have been aboard the {plain}Soft Touch{/plain}. You want to go home."
+    n "You {plain}should{/plain} be home."
+    n "You never understood her enthusiasm when she was assigned here. You certainly didn’t share it. You have a thin respect for the Captain, but the rest have no decorum. No manners. They’re as plain and unyielding as the riveted metal plating of the walls on this wretched ship. As harsh as the fluorescent lights. As droning as the engine humming beneath your feet."
+    n "You arrive at the bridge, taking a moment to gather yourself. There’s a glow within you, a small, bitter hope, that whatever this emergency is, that it may lead Ariadne to abort your mission early. Then you can put all this behind you."
+    n "When the doors of the bridge slide open, a shouting voice reaches you first. Your comms officer has a hand cupping her exposed ear, leaning into her headset as if it will better help her hear through it."
     show comms_officer with dissolve
-    n "The COMMS OFFICER taps on his microphone."
-    s "Captain, do you read me? THE ECOLOGIST. THE NAVIGATOR. Do you read?"
+    s "Knight! Knight, do you copy? Captain, do you read? Turner—"
     l "Have we lost signal?"
-    n "He glances over his shoulder at you. His brows crease together."
-    s "It’s no use. Nothing’s getting through."
-    l "What’s the last thing you heard?"
-    s "THE ECOLOGIST mentioned wanting to get some further samples from Site C. We confirmed with the schedule, THE NAVIGATOR led them back, then… nothing."
-    n "You turn to the ship’s sonar. Each of the payload sites have their own red dot. Another blinking dot represents the party. They’re hovering near the outside of the C dot."
-    l "Has Site C ever been a problem before?"
-    s "No. Never. We have a transmitter between it and Site D."
-    l "How long has it been?"
-    s "Fifteen minutes."
-    n "You take a deep breath. You stare outside the viewport as if by some miracle, she’ll appear."
-    n "She doesn’t."
-    l "We need to get out there then. Who else can go?"
-    s "They still have time. Protocol is thirty."
-    l "Are you joking? Someone needs to go find them — now."
-    s "I don’t like it anymore than you do, Langston, but we don’t have a choice. Until it’s a qualifiable emergency, we’d put everyone at risk."
-    l "This is ridiculous. This isn’t an emergency to you?"
-    n "He gives you a long, hard look."
-    s "They’re my friends too, Doctor."
-    l "It’s just just friends out there."
-    n "Something crackles from his headset. His eyes widen, you jerk upward. He switches the transmitter so you both can hear."
-    f "— back — ship —"
-    s "Captain? Captain, do you read?"
-    f "COMMS OFFICER. Something — down. We need —"
-    n "A screech crackles over the transmitter. Followed by something visceral and wet."
-    s "Captain? Captain!"
-    l "NAVIGATOR? Are you there?"
-    n "There’s a rustling on the other end. Like the receiver’s being dragged through dirt. Until suddenly it cuts out. Replaced by heavy breathing."
-    w "Mayday, mayday, do you read me?"
-    n "You let out a breath you didn’t know you were holding. Your nails bite into your palms. You brush past COMMS OFFICER to lean out the viewport."
-    s "NAVIGATOR what’s going on?"
-    w "There’s something — It got them. And — coming back."
+    n "Her eyes dart over to meet yours."
+    s "It cut off. After… I heard something. A thump. Signal’s been dead just over fifteen minutes, now."
+    n "On the ship’s radar, each data collection site glows as a solid green dot, and among them, the party’s red beach blinks. They’re not far from Site C."
+    l "Has Site C ever been a problem before now?"
+    s "No. Never."
+    n "Turner would normally be the one monitoring the radar, but you suppose you’re the next best thing. Not that it helped; conditions surrounding Site C are hazy at worst, from the looks of it. Nothing they haven’t worked in before."
+    l "Send me out."
+    s "Absolutely not."
+    l "If there’s a problem, we need someone to reach them."
+    s "That’s not what protocol says."
+    s "The best place for you is here, so you can tend to whoever comes back."
+    l "Whoever?"
+    n "Her mouth twitches. Before she can say anything more, something crackles from her headset. Her eyes widen, you jerk upward. She switches the transmitter so you both can hear."
+    #SPRITE NOTE: I’d love if it were possible for the ECOLOGIST’S sprite to fade in and out during this scene to correlate with the signal going in/out
+    #FOR KNIGHT- SPRITE: Ecologist_hurt (or whatever I name the spacesuit vers.)
+    show comms_officer at midleft with move
+    show ecologist_cast at interrogation with pixellate
+    k "Mayday, mayday, do you read me?"
+    n "Acid fills your stomach. Your nails bite into your palms. You brush past Sutton to lean out the viewport."
+    s "Knight, what’s going on?"
+    l "Where’s Turner?"
     n "There’s a jostling of clothing and gear. She’s running."
-    s "What do you mean it got them? NAVIGATOR?"
-    l "Just come back. Just make it back."
-    w "I’m coming."
-    n "COMMS OFFICER gives you a look, before diverting his attention back."
-    s "NAVIGATOR —"
-    w "They’re gone."
-    n "COMMS OFFICER’s shoulders collapse. There’s a gentle shake to his hands."
-    w "Start the ship!"
-    n "The engineer breaks from his trance and moves to the control panel. They wait for the COMMS OFFICER’s orders."
+    show ecologist_cast at interrogation with pixellate
+    k "There’s something — It got them. And — coming back."
+    n "It’s like you’ve been vacuum-sealed from the inside. A tightness, an unrelenting squeeze threatens your collapse."
+    s "What do you mean it got them? Knight?"
+    show ecologist_cast at interrogation with pixellate
+    k "—I can’t—"
+    s "Knight—"
+    k "They’re gone."
+    n "There’s a ringing in your ears. Your hands shake. You feel a compulsion to vomit."
+    show ecologist_cast at interrogation with pixellate
+    k "Start the ship!"
+    n "The engineer breaks from his trance and moves to the control panel. They wait for Sutton’s orders."
+    l "We need to find her."
+    l "{b}Now.{/b}"
+    n "Sutton hesitates. She won’t look at you. Knight comes closer and closer, checking over her shoulder. It becomes more and more obvious she’s injured. Their shoulder swings loose in her suit; she has that same arm clutched to their sternum."
+    k "Sutton!"
+    n "She squeezes her eyes shut. Then turns for the Engineer."
+    hide ecologist_cast with fade
+    show comms_officer with move
+    s "Open the hatch. Then start us."
+    n "The engineer brings the ship’s engines to life. The bridge rumbles with it. You grab her by the shoulder."
     l "What are you doing?"
-    s "I need to think."
-    n "THE NAVIGATOR bursts from the treeline outside the viewport."
-    l "We don’t have time!"
-    s "The Captain —"
-    l "— The Captain’s dead. You have to decide."
-    n "He hesitates. THE NAVIGATOR comes closer and closer, checking over her shoulder. He squints at her from afar."
-    s "Where’s her helmet?"
-    l "Start the ship!"
-    w "COMMS OFFICER!"
+    s "She’s already gone."
+    s "We have to protect the crew. That’s what she would want."
+    n "She pulls herself away from you, turning back toward the viewport. Knight is less than twenty meters away and gaining. You stand taut, a hollow reservoir filling with liquid hot ire."
+    l "How the hell would you know what she would want?"
+    l "She would want to be alive. She would want to be here."
+    l "You don’t know anything about her."
     s "Wait."
-    n "From the treeline. Someone else. THE NAVIGATOR turns to look."
-    w "ECOLOGIST!"
-    n "As ECOLOGIST approaches, they start waving their arms at the ship. Their voice shouts into the NAVIGATOR’S distant receiver."
-    k "STOP! STOP!"
+    n "From the treeline. Someone else. Knight turns to look."
+    k "Turner?"
+    n "You let out a breath you didn’t know you were holding. Everything releases all at once."
+    n "Turner escapes into the clearing, her suit tattered and fluttering behind her. She waves their arms at the ship. Her voice shouts into Knight’s distant receiver."
+    # SPRITE NOTE: No sprite for Turner yet as she isn’t on the ship . . and frankly I don’t want to draw a spacesuit vers for her rn. Smiles :-)
+    w "STAND BY! STAND BY!"
+    n "Your heart beats again. Thank god. Thank god."
+    n "Sutton digs her fingers into her eyes, dragging her hands down her face. {w}But then she squints."
+    s "Where’s her helmet?"
+    n "It’s true. It’s gone. Her hair flows behind her without the confines of the glass."
+    n "You turn to go."
+    l "I’ll meet them there. I’ll get my kit. Start the ship."
+    n "Sutton glances at you. Like she wants to say something. But she doesn’t."
+    s "Go ahead. I’ll manage things here."
+    n "You leave for your office."
     
-    scene quarantine_room_v2 with irisin:
+    scene quarantine_room_v2 with fade:
         size(1920, 1080)
+    n "With your medical kit in hand, you rush down the ship’s infrastructure to the exit ramp. Your fingers lock into place around the handle."
+    show ecologist_cast with dissolve
+    n "You arrive and Knight stands waiting for you. She’s slumped against a wall, recovering. The door outside is closed. She won’t make eye contact."
+    l "Where is she?"
+    n "They glance at the glowing communication receiver. You slam your palm into it."
+    l "Sutton."
+    s "I don’t want this any more than you do, Langston."
+    l "What are you talking about?"
+    k "She was exposed."
+    n "You jerk around to look at them."
+    l "What?"
+    k "Her helmet. Something must have happened. During the attack. We can’t let her in."
+    s "She can stay at the landsite until Second Team comes."
+    l "This is bullshit."
+    s "This is protocol."
+    l "What about whatever attacked you? What if the facility isn’t stable enough to hold it back?"
+    k "And what if she exposes everyone on board to something she’s carried in? I can’t even test my samples. They got left behind."
+    s "I’m sorry. If there were any other way, we would take it. But it just isn’t safe."
+    l "What about quarantine? What about quarantine procedures?"
+    n "Knight’s brow creases."
+    k "No. We can’t be sure decontamination would be enough. We have to leave this to Biohazard."
+    l "You said she was dead."
+    k "I thought she was. I’m glad she isn’t. I don’t want her to end up killing us all."
+    n "You stare at them, clenching your fists. You turn back to the receiver."
+    l "Sutton. What does protocol say about quarantine?"
+    k "We don’t have sufficient equipment."
+    l "I can monitor her. I know her best. If something’s wrong, we’ll know for sure."
+    k "You’re not qualified!"
+    l "How should we know if we should trust you either?"
+    n "They shoot up straight."
+    k "Are you crazy? My suit isn’t tampered with!"
+    l "How do we know that for sure? What if we’re all already contaminated?"
+    s "Enough."
+    n "She sighs."
+    s "The ship has built in quarantine procedures in the hatch. We let her in, she can stay there, and there’s enough equipment to at least keep her in check."
+    s "With what we have, she has to stay inside for at least five days. After that… we’ll have to talk about what to do. In the meantime, Langston will keep watch. Find out if there’s some way to test her for a breach of anything."
+    s "Any objections?"
+    n "Knight’s face screws up. She takes a deep breath, then winces. She grabs her shoulder."
+    k "Fine. But I’ll be looking very carefully at your data."
+    n "You just nod. There’s a sort of numbness following through your bloodstream. You have to stabilize yourself against the inner hull."
+    s "Fine. Open the hatch."
+    s "We’ll be taking off in sixty seconds. Both of you go to the infirmary. Prepare for launch, then make sure they’re taken care of."
+    k "Knight gives you a parting look. Then leaves you as she navigates down the hall."
+    n "The window to the hatch fills with a dense smoke. Decontamination. But you see the light of the outside filter through as the door opens. Through it, you know she’s there. Finally safe."
+    n "Your hand lingers on the glass for a moment. Eventually you follow Knight."
     
+    scene desk with dissolve:
+        size(1920, 1080)
     n "You stare at the monitors before you. Her various charts fluctuate with every breath, every heartbeat, every muscle twitch. Meanwhile, she sits on the floor, chin on her knees, staring at the ground."
-    show wife normal at interrogation with dissolve
-    # show screen airlockbutton
     n "Your heart clenches."
-    n "COMMS OFFICER walks up behind you. His gaze is solemn. It looks like he hasn’t slept since the funeral."
+    n "Sutton walks up behind you. Her gaze is solemn. It looks like she hasn’t slept since the funeral."
+    show comms_officer at midleft with dissolve
     s "I hope you know what you’re doing."
     l "I do."
     s "You know her best, after all."
-    n "He sighs. Then he leaves you with her."
-    $ say_style = "Interrogation"
-    label checks1:
+    n "She sighs. Then she leaves you with her."
+    hide comms_officer with fade
+    label monitor1:
         menu:
             "> CHECK VITALS":
-                n "The feed from her wristband monitor seems normal. No elevated pulse, no abnormal rhythm. It’s as if nothing’s changed at all."
-                $ vitals = True
-                if vitals == True and scans == True:
-                    jump act1
+                if vitals:
+                    n "Enough stalling."
+                    jump monitor1
                 else:
-                    jump checks1
-                
+                    n "The feed from her wristband monitor seems normal. No elevated pulse, no arrhythmia. It’s as if nothing’s changed at all."
+                    $ vitals = True
+                    jump monitor1
             "> CHECK SCANS":
-                n "You sort between thermal scans, electrical scans, and internal scans of her body. Nothing out of place."
-                $ scans = True
-                if vitals == True and scans == True:
-                    jump act1
+                if scans:
+                    n "Enough stalling."
+                    jump monitor1
                 else:
-                    jump checks1
-    
-    # q1 name is meat title is candy
-    # q2 state of mission candy what is assignment meat
-    # q3 feeling meat experienced unusual candy
-    # q4 describe incident meat helmet candy
-    # q5 sorry meat gone candy
-    # q6 talk about that morning meat other choice is candy
-    # q7 epidermal candy blood meat
-    
-    scene act1
-    label act1:
-    
+                    n "You sort between thermal scans, electrical scans, and internal scans of her body. Nothing out of place."
+                    $ scans = True
+                    jump monitor1
+            "> CHECK AUDIO LOG":
+                if audio:
+                    n "Enough stalling."
+                    jump monitor1
+                else:
+                    n "There was an initial conversation she had with SUTTON where he filled her in. She seemed to take it well, but you know her enough to recognize the clipped sentences for what they are. No one would want this for themselves."
+                    $ audiolog = True
+                    jump monitor1
+            "> CHECK AIRLOCK RELEASE":
+                if release:
+                    n "You know, deep down, beneath the denial and the fear and the dread, that there may come a moment where you will have to do what’s necessary. If that moment should come, you know what you need to do."
+                    jump monitor1
+                else:
+                    n "You don’t want to."
+                    $ release = True
+                    jump monitor1
+            "> BEGIN QUESTIONING" if vitals and scans and audiolog:
+                n "You click on the startup prompt that records your conversation. A pop-up appears with an advisory message: The following questions are best utilized to ascertain the state of being, mental stability, and personhood of quarantine subjects. Keep in mind these suggestions are only suggestions. Each subject will differ. Therefore, sometimes it is not what’s said, but how it’s said that will get the most reliable answer."
+    n "You take a deep breath."
+    show screen airlockbutton
+    $ say_style = "Interrogation"
+    play music "InterrOGGationloop.ogg"
+    l "This is Doctor Langston, A initiating quarantine procedure questioning. Are you of sufficient body and mind to proceed?"
+    n "She turns to face the speaker. There’s a light in her eyes."
+    show wife normal at interrogation with dissolve
+    w "Alice."
+    l "I need a yes or no answer."
+    w "Yes."
+    l "Do you consent to quarantine procedures?"
+    w "Yes."
+    l "Good. Let’s begin."
+    label act1question1:
+        menu:
+            "> WHAT IS YOUR NAME":
+                w "Charlotte Turner. Hyphen Langston, depending on who you ask."
+                $ meat += 1
+            "> WHAT IS YOUR TITLE":
+                w "Navigator of the Soft Touch. Third in command. Also, your wife."
+                $ candy += 1
+    label act1question2:
+        menu:
+            "> WHAT IS THE CURRENT STATE OF OUR MISSION?":
+                hide wife normal with dissolve
+                show wifeside towards smile at interrogation with dissolve
+                w "The current… state?"
+                w "Things are going well, I think."
+                w "This is our last stop on this go around. We were supposed to spend some more time collecting samples, but… well."
+                w "Hopefully we have enough."
+                $ candy += 1
+            "> WHAT IS YOUR ASSIGNMENT?":
+                hide wife normal with dissolve
+                show wifeside away smile at interrogation with dissolve
+                w "I help lead the science officers into the field to collect data for Ariadne. And get us to the planets to begin with."
+                w "They’re looking for resources, but in order to excavate it’s up to us to find a planet with suitable conditions."
+                w "That’s what all the pamphlets say, at least. I’m just the navigator."
+                $ meat += 1
+    l "You’re doing well so far. Nothing out of the ordinary."
+    show wifeside towards frown at interrogation with dissolve
+    w "Is whatever you’re reading off telling you to say that?"
+    l "…No. That’s from me."
+    w "Well. Thank you. I’d hope so."
+    label act1question3:
+        menu:
+            "> HOW ARE YOU FEELING?":
+                hide wifeside with dissolve
+                show wife normal at interrogation with dissolve
+                w "Tired. Anxious, I guess. But that’s not what you’re asking. I feel fine. Fine as I could be, given the circumstances."
+                hide wife normal with dissolve
+                $ meat += 1
+            "> HAVE YOU EXPERIENCED ANYTHING UNUSUAL?":
+                show wifeside away frown darkness at interrogation with dissolve
+                w "Like… what? Other than being attacked and chased and thrown into quarantine, interrogated by my wife? No."
+                l "I know this isn’t ideal. But I fought for you. I’d rather you be here than forced to wait there."
+                $ candy += 1
+    show wifeside towards smile darkness at interrogation with dissolve
+    w "…Thank you, Alice. It’s not like I don’t understand. Safety first."
+    w "…Were they really going to leave me there?"
+    label act1question4:
+        menu:
+            "> DESCRIBE THE INCIDENT.":
+                show wifeside away with dissolve
+                w "It’s difficult to talk about."
+                w "Knight wanted to go back for samples. We got the go ahead and we went. Site C is on the swampy side of the river so when we noticed the transmitter was down, we figured it must have been the humidity and went to make repairs."
+                w "But it wasn’t the humidity."
+                w "…"
+                w "The Captain drew its attention so we could get away. But it caught up to me too."
+                w "There was something about its skin that made it… stick. And it was stuck to my helmet."
+                show wifeside towards with dissolve
+                w "I did what I had to to survive."
+                $ meat += 1
+            "> WHAT HAPPENED TO YOUR HELMET?":
+                show wifeside away with dissolve
+                w "It’s difficult to talk about."
+                w "Knight wanted to go back for samples. We got the go ahead and we went. Site C is on the swampy side of the river so when we noticed the transmitter was down, we figured it must have been the humidity and went to make repairs."
+                w "But it wasn’t the humidity."
+                w "…"
+                w "The Captain drew its attention so we could get away. But it caught up to me too."
+                w "There was something about its skin that made it… stick. And it was stuck to my helmet."
+                show wifeside towards with dissolve
+                w "I did what I had to to survive."
+                $ candy += 1
+    label act1question5:
+        menu:
+            "> I’M SORRY.":
+                show wifeside -darkness with dissolve
+                w "I’m sorry too."
+                w "I wish there was more I could have done. For the Captain. For Sutton. For you."
+                w "I’m just glad I made it home."
+                $ meat += 1
+            "> KNIGHT THOUGHT YOU WERE GONE.":
+                show wifeside frown -darkness with dissolve
+                w "…"
+                w "I thought they saw me struggle with it. I thought they might help. I guess I can’t blame them."
+                w "I can’t imagine what that must have been like for you. I’m sorry."
+                $ candy += 1
+    label act1question6:
+        menu:
+            "> DO YOU WANT TO TALK ABOUT THAT MORNING?":
+                show wifeside away frown with dissolve
+                w "…"
+                w "It’s behind us now."
+                w "In light of everything, I’m sure we both have our regrets."
+                w "If there’s anything else to say… we can say it once I’m clear."
+                $ meat += 1
+            "> WAS ANYTHING ELSE BROUGHT INTO THE SHIP WITH YOU?":
+                w "The room probably would’ve taken anything with it when it took my suit."
+                w "I didn’t even know it could do that. I guess you have it now? For analysis?"
+                w "But anyway. No, I didn’t bring anything else in with me."
+                $ candy += 1
+    n "This is it. What you’ve been dreading the most. You open the procedural window of your quarantining window, type in your credentials, and a list of etiquette and procedures appears."
+    l "I need to take some data to make sure everything’s normal."
+    l "Just… bear with me."
+    hide wifeside with dissolve
+    show wife normal at interrogation with dissolve
+    w "Whatever it takes."
+    n "Each step pertains to the systematic elimination of potential hazards to the ship. Anything decontamination and the rudimentary scans couldn’t catch, this should cover. Some of them are… particularly invasive. You don’t want to overwhelm her and make things worse than they already are."
+    n "You read over the instructions on your options."
+    label act1torture:
+        menu:
+            "> EPIDERMAL SCAN":
+                n "This involves a censor that would comb over her skin to check for any lesions or entry points. Minimally invasive, medically speaking, but the machine would have to shave her head to leave nothing unchecked."
+                n "Do you want to proceed?"
+                menu:
+                    "> YES":
+                        l "I’m going to have the scanner take a closer look at your skin."
+                        hide wife normal with dissolve
+                        show wife scared at interrogation with dissolve
+                        l "But… That’s going to mean losing your hair."
+                        show wife normal at interrogation with dissolve
+                        w "Oh."
+                        hide wife normal with dissolve
+                        show wifeside away frown darkness at interrogation with dissolve
+                        w "I see."
+                        w "Do I have a choice?"
+                        l "…"
+                        l "I’m sorry. I know that—"
+                        show wifeside towards with dissolve
+                        l "I just want to do what it takes."
+                        show wifeside away with dissolve
+                        w "—Yeah, well."
+                        w "You’ll do what you have to do. Nothing personal."
+                        show wifeside towards smile with dissolve
+                        w "Ha, it  might be even easier this way, anyway."
+                        l "What do you mean?"
+                        w "It could be like I’m someone else entirely. Maybe it’d help us keep this a little more professional."
+                        hide wifeside with dissolve
+                        show wife normal at interrogation with dissolve
+                        l "Oh."
+                        l "I don’t know."
+                        l "I guess so."
+                        hide wife normal with dissolve
+                        show wifeside towards smile darkness at interrogation with dissolve
+                        n "The mechanisms from the wall shift around, preparing for the scan. In spite of everything, she smiles at you."
+                        show wifeside away with dissolve
+                        w "You don’t have to stay if you don’t want to."
+                        show wifeside tears with dissolve
+                        w "If it would be easier for you, you could go."
+                        l "It’s fine." 
+                        l "I don’t mind."
+                        n "She nods." 
+                        w "Like I said. Whatever it takes."
+                        n "She lowers her head, her dense curls falling down around her neck. You brace yourself."
+                        $ candy += 1
+                        $ haircut = "short"
+                        show wifeside tears with hpunch
+                    "> NO":
+                        jump act1torture
+            "> BLOOD ANALYSIS":
+                n "A mechanical arm would extend from the wall to take her blood. This may sting a little."
+                n "Do you want to proceed?"
+                menu:
+                    "> YES":
+                        l "I’m going to have the machine draw your blood so I can analyze it."
+                        l "Are you ready?"
+                        n "She nods."
+                        hide wife normal with dissolve
+                        show wifeside away smile at interrogation with dissolve
+                        w "Seems pretty simple."
+                        w "It reminds me of when you had to practice during med school. The fake arm?"
+                        show wifeside towards with dissolve
+                        n "She laughs. You missed that sound."
+                        w "You were pretty bad at it."
+                        l "It’s not easy, you know."
+                        l "Especially when you kept wiggling it."
+                        w "Real people are twitchy! I was just testing you."
+                        show wifeside darkness with dissolve
+                        n "This time, you share a laugh. The mechanisms from the wall shift around, a robotic arm prepares its needle. She stares at it warily."
+                        show wifeside away -darkness
+                        l "Hey…"
+                        l "Are you sure you don’t miss it?"
+                        show wifeside towards smile
+                        w "Home?"
+                        w "Honestly, I think I miss it now more than ever."
+                        w "Maybe I was a little hasty. When I said those things."
+                        n "Her words linger a while before they actually penetrate. You take a breath."
+                        l "Okay."
+                        l "We can… talk more about this later."
+                        w "Of course."
+                        n "The arm takes her blood. She winces, but as always, powers through."
+                        $ meat += 1
+                    "> NO":
+                        jump act1torture
+
     scene bedroom_light_mode with irisin:
         size(1920, 1080)
     label act2:
     
     $ say_style = "Cutscene"
+    play music "Investigationloop.ogg"
     n "The centrifuge spins and spins and spins. You watch it absentmindedly from your desk chair. This is its third cycle. Your leg bounces beneath your desk."
     n "You rip yourself from the distraction and refocus on your microscope. You adjust the dials, but your vision’s still blurry. Lack of sleep. You push your glasses up to rub your corneas into shape."
     n "The samples beneath the glass still don’t make any sense to you. Nothing’s wrong with them, of course. But there’s just an oddness about them. You think your eyes are tricking you into seeing things that aren’t there, like looking at the walls of a thunderstorm and swearing you can see it spinning into a twister."
@@ -193,8 +471,7 @@ label start:
     n "As the haze clears, Turner sits squarely in the center of the room, next to a piece of wall panel. Frayed wires and inner piping now sit exposed in a small rectangle."
     n "You press the monitor’s transmitter to the ship’s bridge."
     n "We’re all good. Everything’s under control."
-    show comms_officer with dissolve:
-        xalign 0.2
+    show comms_officer at midleft with dissolve
     s "What happened?"
     n "You take a deep breath."
     l "Nothing. Part of the wall fell off."
@@ -203,14 +480,16 @@ label start:
     s "Alright. Copy."
     hide comms_officer with dissolve
     n "You turn off the transmitter and immediately click open the startup prompt."
-    show quarantine_room_v2 with fade:
+    show quarantine_room_v2 with irisin:
         size(1920, 1080)
     show wifeside at interrogation with dissolve
     
     $ say_style = "Interrogation"
+    play music "InterrOGGationloop.ogg"
     label act2question1:
         menu:
             "> WHAT HAPPENED?":
+                show wifeside away frown darkness at interrogation with dissolve
                 w "I just… panicked. I feel suffocated. I can’t stay here."
                 w "Don’t you understand the position I’m in? People already don’t trust us. This is only going to make things worse."
                 w "You don’t understand what it’s like. You don’t know how alone I feel. What else am I supposed to do?"
@@ -222,10 +501,12 @@ label start:
                 l "If it wasn’t for me, you’d be stuck planetside. At least you have assured safety here."
                 l "Just so long as the others don’t think something’s wrong."
                 w "…"
+                show wifeside towards with dissolve
                 w "Do you think something’s wrong?"
                 l "Let’s begin the questioning."
                 $ meat += 1
             "> WHAT DID YOU DO?":
+                show wifeside away frown darkness at interrogation with dissolve
                 w "I just… panicked. I feel suffocated. I can’t stay here."
                 w "Don’t you understand the position I’m in? People already don’t trust us. This is only going to make things worse."
                 w "You don’t understand what it’s like. You don’t know how alone I feel. What else am I supposed to do?"
@@ -237,6 +518,7 @@ label start:
                 l "If it wasn’t for me, you’d be stuck planetside. At least you have assured safety here."
                 l "Just so long as the others don’t think something’s wrong."
                 w "…"
+                show wifeside towards with dissolve
                 w "Do you think something’s wrong?"
                 l "Let’s begin the questioning."
                 $ candy += 1
@@ -246,7 +528,7 @@ label start:
                 w "You already asked me this."
                 l "Tell me again."
                 w "…Okay."
-                hide wifeside
+                hide wifeside with dissolve
                 show wife normal at interrogation with dissolve
                 w "We were attacked. The Captain was killed and dropped our equipment. Knight managed to grab some of it and get away. It grabbed me, but I fought it and wriggled away. My helmet went off with it."
                 show wife scared at interrogation with dissolve
@@ -258,6 +540,8 @@ label start:
                 w "Why are you doing this? I don’t know what you want, Alice."
                 l "I want to make things work."
                 n "She stares at the camera, at a loss. She tries to say something, but thinks better of it. Her teeth lock together."
+                hide wife normal with dissolve
+                show wifeside away frown at interrogation with dissolve
                 w "We have to get out of this first."
                 w "Keep asking your questions."
                 $ meat += 1
@@ -265,7 +549,7 @@ label start:
                 w "You already asked me this."
                 l "Tell me again."
                 w "…Okay."
-                hide wifeside
+                hide wifeside with dissolve
                 show wife normal at interrogation with dissolve
                 w "We were attacked. The Captain was killed and dropped our equipment. Knight managed to grab some of it and get away. It grabbed me, but I fought it and wriggled away. My helmet went off with it."
                 show wife scared at interrogation with dissolve
@@ -277,32 +561,40 @@ label start:
                 w "Why are you doing this? I don’t know what you want, Alice."
                 l "I want to make things work."
                 n "She stares at the camera, at a loss. She tries to say something, but thinks better of it. Her teeth lock together."
+                hide wife normal with dissolve
+                show wifeside away frown at interrogation with dissolve
                 w "We have to get out of this first."
                 w "Keep asking your questions."
                 $ candy += 1
     label act2question3:
         menu:
             "> HAS YOUR CONDITION CHANGED SINCE WE LAST SPOKE?":
+                show wifeside towards with dissolve
                 w "No."
                 w "I feel the same."
                 $ candy += 1
             "> WHAT DO YOU DO WHEN I’M NOT HERE?":
+                show wifeside towards smile with dissolve
                 w "What is there to do?"
                 w "Stare at the wall. Count the wall tiles. Minus one, now."
                 if haircut == "short":
+                    show wifeside frown with dissolve
                     w "I used to braid my hair."
                 w "I mostly just think."
                 $ meat += 1
     label act2question4:
         menu:
             "> HAVE YOU EXPERIENCED ANY OTHER EMOTIONAL ABNORMALITIES?":
+                show wifeside towards frown darkness with dissolve
                 w "What do you think?"
                 w "I’m trying to keep it together. I am."
                 w "But this is just…"
                 w "I don’t even know how long it’s been."
                 $ candy += 1
             "> WHAT DO YOU THINK ABOUT?":
+                show wifeside towards frown darkness with dissolve
                 w "You."
+                show wifeside smile with dissolve
                 w "But also… the crew."
                 w "What might happen if something is wrong."
                 w "What I could’ve done differently."
@@ -310,13 +602,16 @@ label start:
     label act2question5:
         menu:
             "> DO YOU FEEL LIKE YOURSELF?":
+                show wifeside away smile with dissolve
                 w "Not in the way you mean."
                 w "I’m me. I know I’m me."
                 w "But at the end of this, I don’t know if I’ll be the same person that I was before."
                 $ candy += 1
             "> WHAT COULD YOU HAVE DONE DIFFERENTLY?":
+                show wifeside away frown -darkness with dissolve
                 w "I keep running through what happened. It’s on playback. Over and over again."
                 w "Maybe if I didn’t hesitate. If I just ran from it."
+                show wifeside darkness tears with dissolve
                 w "But when the Captain tried to step in front of us, I froze. I didn’t want to leave them behind."
                 w "Is it better to flee for your own sake? Or fight even when hope is lost?"
                 w "What do you think?"
@@ -324,21 +619,25 @@ label start:
     label act2question6:
         menu:
             "> WERE YOU INTENDING TO ESCAPE?":
+                show wifeside darkness frown with dissolve
                 w "I guess it’s about time we get to the point."
                 w "Could I have gotten very far, realistically?"
                 w "I don’t know."
+                show wifeside -darkness with dissolve
                 w "I guess the answer to your question is yes. Even if, subconsciously, I knew better."
                 w "I just don’t want to be here anymore."
                 $ candy += 1
             "> WHAT IF SOMEONE SAW YOU?":
+                show wifeside towards darkness frown with dissolve
                 w "Saw what?"
                 w "Oh. This."
                 w "I didn’t think the alarm would trigger, for one thing."
                 w "But even if it did, I knew you’d be the only one to see it."
+                show wifeside smile -darkness with dissolve
                 w "I’m in your care, after all."
                 $ meat += 1
-    hide wifeside
-    show wife normal at interrogation
+    hide wifeside with dissolve
+    show wife normal at interrogation with dissolve
     n "All of a sudden, she stares into the camera for a moment. You get goosebumps."
     w "Can I ask you something?"
     n "You open your mouth to speak, then close it. You glance at the procedures listed on your monitor."
@@ -382,6 +681,7 @@ label start:
                 menu:
                     "> YES":
                         n "The wall struggles with the missing panel, but still manages to kick into motion. She jerks towards it, watching the arms form."
+                        show wife scared at interrogation with dissolve
                         w "What are you doing?"
                         l "…"
                         n "She stands, backing towards the wall. Two of the panels behind her shove her forward, closer to the bed. Corralling her."
@@ -403,9 +703,12 @@ label start:
                 menu:
                     "> YES":
                         n "The wall struggles with the missing panel, but still manages to kick into motion. She jerks towards it, watching the arms form."
+                        show wife scared at interrogation with dissolve
                         w "What are you doing?"
                         l "It’s just an injection."
                         n "She seems to loosen, some. The arm with the needle approaches her, looming over her. She stares at it warily."
+                        hide wife scared with dissolve
+                        show wifeside towards frown at interrogation with dissolve
                         l "What if I don’t want to see it?"
                         n "She doesn’t take her eye off the needle. But you can see her thinking."
                         n "She shrugs. She lays her arm out for ease of access."
@@ -417,6 +720,7 @@ label start:
                         w "If you don’t change with them, what’s going to be left of you?"
                         w "I don’t think you’d be very happy that way."
                         n "The arm recedes. Blood bubbles at the injection site. She smears it down her skin."
+                        show wifeside smile with dissolve
                         n "She smiles."
                         w "Just think about it."
                         n "You feel a surge of cold."
