@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/candy_route.rpy", line 167: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    size(1920, 1080)
-    ^
+File "game/script.rpy", line 78: multiple at clauses are prohibited.
+    show ecologist_cast at interrogation at pixellate
+                                           ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Sun Jul  6 18:14:17 2025
+Sat Jul 12 15:13:51 2025

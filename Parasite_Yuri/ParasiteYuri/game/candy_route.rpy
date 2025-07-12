@@ -2,7 +2,7 @@ label candy_route:
 
     $ say_style = "Cutscene"
     play music "Investigationloop.ogg"
-    scene bedroom_dark with dissolve:
+    scene bedroom_dark with fade:
         size(1920, 1080)
     
     n "You pace." 
@@ -21,12 +21,12 @@ label candy_route:
 
     #[TRANSITION TO MONITOR]
 
-    scene desk with dissolve:
+    scene desk with fade:
         size(1920, 1080)
     pause 3.0
-    scene quarantine_room_v2 with irisin:
+    scene quarantine_room_v2 with dissolve:
         size(1920, 1080)
-    show wife disdain at interrogation with dissolve
+    show wife disdain at interrogation
     $ say_style = "Interrogation"
     play music "InterrOGGationloop.ogg"
     p "I knew you'd come."
@@ -51,12 +51,12 @@ label candy_route:
     label act2candyquestion1: # if hit no, loop back to original yes/no prompts
         menu: 
             "> NO":
-                show wife disdain at interrogation with dissolve
+                show wife disdain at interrogation 
                 p "Shoot me out the airlock, then."
                 p "This doesn't go any other way, I'm afraid."
                 jump act2candyquestion1
             "> YES":
-                show wife disdain at interrogation with dissolve
+                show wife disdain at interrogation
                 p "I knew you'd come around, sweetheart."
                 p "I'll let you go first, then."
                 l "…"
@@ -67,11 +67,11 @@ label candy_route:
                 p "I'm a passenger. Just like you are."
                 p "The destination doesn't matter. As long as I'm going."
             "> WHAT DO YOU WANT?":
-                show wife normal at interrogation with dissolve
+                show wife normal at interrogation
                 p "Survival. Just like you."
                 p "Human beings have it easy. You are your own vessel."
                 p "Some things don't have that luxury. We have to hitch rides."
-    show wife disdain at interrogation with dissolve
+    show wife disdain at interrogation 
     p "My turn. Exciting!"
     p "This is a lot of pressure. Do you always feel this way?"
     p "There's one thing I'd really like to know."
@@ -95,16 +95,16 @@ label candy_route:
     p "Very interesting."
     p "Thank you."
     p "Your turn."
-    show wife normal at interrogation with dissolve
+    show wife normal at interrogation
     label act2candyquestion4:
         menu:
             "> WAS IT EVER REALLY HER?":
-                hide wife normal with dissolve
-                show wifeside towards frown at interrogation with dissolve
+                hide wife normal
+                show wifeside towards frown at interrogation
                 n "Her brows incline. She gives you a look of pity."
                 p "No. Not since she received me."
                 p "We had a brief exchange. A passing of ships. I took on her burden. Her thoughts, her feelings, her sense of self."
-                show wifeside smile with dissolve
+                show wifeside smile
                 p "It's just been you and me."
             "> WHY HER?":
                 p "Is it better or worse to know it could have been anyone?" 
@@ -121,10 +121,10 @@ label candy_route:
             "> SCARED OF CHANGE":
                 l "We had something. We had a routine. Things weren't perfect, but they worked."
                 l "She wanted to throw everything away. For what?"
-                l "I hate this ship. I hate this… vacuum. This silence."
-                l "But being here was easier to swallow than giving up {i} everything {/i}."
-                hide wifeside with dissolve
-                show wife disdain at interrogation with dissolve
+                l "For this miserable ship? For a crew that can't appreciate her? These stars are nothing to me."
+                l "But being here was easier to swallow than giving up {i}everything{/i}."
+                hide wifeside
+                show wife disdain at interrogation
                 p "You could rebuild it."
                 p "If you wanted."
                 l "But without her?"
@@ -136,8 +136,8 @@ label candy_route:
                 l "What if she decided she didn't want to come home?"
                 l "What was I supposed to do? Just let her go?"
                 l "She was everything to me."
-                hide wifeside with dissolve
-                show wife normal at interrogation with dissolve
+                hide wifeside
+                show wife normal at interrogation
                 p "And now she's gone."
                 p "Now what."
                 l "…"
@@ -154,9 +154,9 @@ label candy_route:
                 p "You could still shoot me out if you wanted to."
                 p "I did take your wife, after all."
                 p "But…"
-                hide wife normal with dissolve
-                hide wife disdain with dissolve
-                show wifeside towards smile darkness at interrogation with dissolve
+                hide wife normal
+                hide wife disdain
+                show wifeside towards smile darkness at interrogation
                 p "I think you know I could also give her back."
                 p "In a sense." 
                 p "I remember all the love we shared—you and Charlotte, that is—as if it was me standing there in her shoes."
@@ -180,6 +180,8 @@ label candy_route:
                     "> NO": 
                         jump act2candyquestion7
             "> YES":
+                hide wifeside
+                show wife disdain at interrogation
                 n "Her teeth glint under the fluorescents. She places a palm next to the camera."
                 p "I'm glad."
                 p "I'm so glad."
@@ -187,7 +189,7 @@ label candy_route:
                 p "Go tell the others."
                 p "I want to see  you."
                 l "Okay." 
-                p "I will."
+                l "I will."
                 n "You power down the monitor. You feel your heartbeat in your fingertips."
     hide screen airlockbutton
     
@@ -201,7 +203,7 @@ label candy_route:
     show comms_officer at midleft with dissolve
     show ecologist_cast at interrogation with dissolve
     n "You pass out copies of your findings. Every test, analysis, and scan reaches the same conclusion: no contamination."
-    l "She's clesar. As I knew she would be."
+    l "She's clear. As I knew she would be."
     l "There was never anything to be concerned about."
     n "The crew reads over your findings. There's a few nods, a few whispers. A room full of relieved faces. Except for one."
     n "Knight scowls at your report. They step forward."
@@ -218,9 +220,9 @@ label candy_route:
     k "Are we really supposed to let you have the final say despite your obvious bias?"
     l "If I suspected her of anything, I would have followed protocal. Simple."
     l "Our conversations were personal."
-    k "Forgive me if the intricacies of your interpersonal relationship aren't something I'm willing to hinge my life on."
-    l "Then trust me knowing I'm hinging mine on it."
-    l "She's safe."
+    k "I assure you I'm not interested in the intricacies of your relationship. Our safety takes precendence over your sexual tension."
+    l "There's no need to be snide."
+    l "She's safe. That's all that matters as far as you're concerned."
     n "Sutton's brows knit together as she reviews your papers. She takes a deep breath."
     s "No one wants to doubt you. Or her."
     s "But… I don't want to dismiss any concern."
@@ -257,18 +259,18 @@ label candy_route:
     s "Opening now."
     n "The door slowly rises. In its wake, she's there."
     n "Her eyes well up with tears."
-    show wifeside towards frown tears with dissolve
+    show wifeside towards smile tears with dissolve
     p "Oh, Alice."
     n "She's upon you instantly, embracing you. Her palm cups the back of your skull. She lays her brow in the nook of your shoulder."
     p "Thank you. Thank you, thank you."
-    n "It takes some time to return the gesture in full. This body, hers, but not. So familiar, but still new. You wrap your arms around her and soon find yourself…relaxed."
+    n "It takes some time to return the gesture in full. This body, hers, but not. So familiar, but still new. You wrap your arms around her and soon find yourself… relaxed."
     n "Sutton clears her throat. She scratches her neck, sheepish."
     s "Good to see you back, Turner."
     s "…I'll give you some room."
     n "She waves, then takes her leave."
     n "She separates herself from you, but doesn’t stop touching you. Her fingers trace your clavicle, your shoulders, down your arms. She holds your hands."
-    hide wifeside with dissolve
-    show wife normal with dissolve
+    hide wifeside
+    show wife normal
     p "You ready?"
     n "She takes the lead, pulling your hand down the corridor."
   
@@ -293,14 +295,14 @@ label candy_route:
     n "She steps down into the conversation pit, falling onto the cushions with a sigh."
     p "This is so much more comfortable than before."
     n "She extends her hand out to you."
-    hide wife disdain with dissolve
-    show wifeside towards smile with dissolve
+    hide wife disdain
+    show wifeside towards smile
     p "Sit with me?"
     n "You go rigid. Your thoughts go blank."
     p "Please?"
     n "Your arm raises, board-like. She takes your hand and pulls you in next to her."
     n "She studies you. Her eyes dart from your nose, your mouth, your body, back to your own eyes. Then she seems to pout."
-    show wifeside frown with dissolve
+    show wifeside frown
     p "You're so much more stiff than how we were before."
     p "What's wrong?"
     n "You take a deep breath."
@@ -308,17 +310,18 @@ label candy_route:
     p "Isn't that what you wanted, to have it all back?"
     l "The love. I want the love."
     l "But I saw the test results. I saw your blood turn bright green when exposed to oxygen. I saw your cells sprout roots like tree saplings. I know you're not the same."
+    show wifeside smile
     p "You can check for yourself if you want—the body you loved is still all here. And then some."
     l "Show me everything. I want to know."
     p "You're not afraid? We can take it slow if you need."
     l "{u}Show me.{/u}" 
-    hide wifeside with dissolve
-    show wife disdain with dissolve
+    hide wifeside
+    show wife disdain
     n "She smirks. Then moves in closer. Your back braces against the corner cushions. She pushes your glasses back into your hair, leaving her palms on your cheeks."
     p "It's funny, getting to know you again."
     p "When I first heard your voice over that speaker…suddenly, I had been missing you for years."
     p "I hated you, too."
-    p "But mostly, I ached. Not just heartache. After our conversation…I learned a lot about this body."
+    p "But mostly, I ached. Not just heartache. After our conversation… I learned a lot about this body."
     p "The way it drips for you."
     p "Do you miss it?"
     l "Yes."
@@ -370,7 +373,8 @@ label candy_route:
     l "I love you, too."
     scene bugsex2 with dissolve:
         size(1920, 1080)
-    n "As you close your eyes, a blur of motion whips up around her as she unfolds herself once more, spilling her anodyne emollient over you to drag you away, far away, where there is only her body and your body and the pleasure hwere the two meet. You are happy to scorn everything else. This wretched ship and these wretched people were the price you once paid for her love; now it offers itself to you freely. At long last."
+    n "As you close your eyes, a blur of motion whips up around her as she unfolds herself once more, spilling her anodyne emollient over you to drag you away, far away, where there is only her body and your body and the pleasure where the two meet."
+    n "You are happy to scorn everything else. This wretched ship and these wretched people were the price you once paid for her love; now it offers itself to you freely. At long last."
     n "You let her carry you home."
     
 

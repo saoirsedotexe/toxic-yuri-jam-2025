@@ -20,23 +20,26 @@ label meat_route:
     n "It'll take a few hours. Hours you can't spare waiting."
 
     # TRANSITION TO MONITOR
-    scene desk with irisin:
+    scene desk with fade:
         size(1920, 1080)
+
     n "She's in bed when you shake the monitor awake. Her back faces away from you."
     n "You start up the session."
     
     $ say_style = "Interrogation"
     play music "InterrOGGationloop.ogg"    
+    scene quarantine_room_v2 with dissolve:
+        size(1920, 1080)
     label act2meatquestion1:
         menu:
             "> WHAT IS YOUR NAME?":
                 n "She raises her head over her shoulder, bleary eyed."
-                show wifeside towards frown at interrogation with dissolve
+                show wifeside towards frown at interrogation
                 w "Alice?"
                 w "What are you doing?"
             "> WHAT IS YOUR TITLE?":
                 n "She raises her head over her shoulder, bleary eyed."
-                show wifeside towards frown at interrogation with dissolve
+                show wifeside towards frown at interrogation
                 w "Alice?"
                 w "What are you doing?"
     label act2meatquestion2: 
@@ -51,14 +54,14 @@ label meat_route:
         menu:
             "> WHAT ARE YOU TO ME?":
                 n "She sits up. Her arms fold across her chest."
-                hide wifeside with dissolve
-                show wife scared at interrogation with dissolve
+                hide wifeside
+                show wife scared at interrogation
                 w "I don't understand."
                 w "I'm your wife."
             "> WHAT IS YOUR ROLE?":
                 n "She sits up. Her arms fold across her chest."
-                hide wifeside with dissolve
-                show wife scared at interrogation with dissolve
+                hide wifeside
+                show wife scared at interrogation
                 w "I don't understand."
                 w "I'm your wife."
     label act2meatquestion4:
@@ -66,11 +69,13 @@ label meat_route:
             "> SAY IT AGAIN.":
                 w "I'm… your wife."
             "> DESCRIBE YOUR CONDITION.":
-                w "That doesn't matter."
+                n "That doesn't matter."
+                jump act2meatquestion4
     label act2meatquestion5:
         menu:
             "> DESCRIBE ANY EMOTIONAL INCONSISTENCIES.":
-                w "That doesn't matter."
+                n "That doesn't matter."
+                jump act2meatquestion5
             "> DO YOU LOVE ME?":
                 w "…"
                 w "Of course I do."
@@ -83,15 +88,15 @@ label meat_route:
                 w "I'm right here."
                 l "For now."
                 n "She fidgets."
-                hide wife scared with dissolve
-                show wifeside towards frown at interrogation with dissolve
+                hide wife scared
+                show wifeside towards frown at interrogation
                 w "Is something wrong?"
                 w "What do you want me to say?"
     label act2meatquestion6:
         menu:
             "> HOW DID WE MEET?":
-                hide wife scared with dissolve
-                show wifeside away frown at interrogation with dissolve
+                hide wife scared
+                show wifeside away frown at interrogation
                 w "It was university."
                 w "We shared a physics class. My friend knew you from other courses. She said you were shy."
                 w "She wasn't even sure if… well."
@@ -100,25 +105,25 @@ label meat_route:
                 w "But… we ended up hitting it off."
                 w "Being around you was the direction I needed."
             "> WHERE WAS OUR FIRST DATE?":
-                hide wife scared with dissolve
-                show wifeside towards frown at interrogation with dissolve
+                hide wife scared
+                show wifeside towards frown at interrogation
                 w "It took us a while to figure that out."
                 w "You wanted a study date. I guess you wanted to make it into something productive."
                 w "But I thought it might be fun to try and get you a little out of your shell. And eventually you agreed."
-                show wifeside smile with dissolve
+                show wifeside smile
                 w "So we went roller skating. I thought you might find it charming in an old-timey sort of way."
                 w "You didn't. But I think you tried."
                 w "I liked knowing that you would at least try."
     label act2meatquestion7:
         menu:
             "> WHAT WERE YOUR WEDDING VOWS?":
-                show wifeside towards frown with dissolve
+                show wifeside towards frown
                 w "…"
                 w "To support you. To light your path forward."
                 w "To go where you go. To stay where you stay."
                 w "To love you steadfastly, fervently, eternally."
             "> WHAT WERE MY WEDDING VOWS?":
-                show wifeside away frown with dissolve
+                show wifeside away frown
                 w "…"
                 w "To follow me always. To stand by me in darkness."
                 w "To hold yourself open to me. To meet me where I am."
@@ -126,20 +131,20 @@ label meat_route:
     label act2meatquestion8:
         menu:
             "> THEN WHY DID YOU LEAVE?":
-                show wifeside away with dissolve
+                show wifeside away
                 w "This isn't fair."
                 w "It's more complicated than that."
                 w "Do you want me to retread a thousand arguments? For what?"
                 w "I'm already at your whim whenever you want."
-                show wifeside towards with dissolve
+                show wifeside towards
                 w "Ask something else."
             "> WHY COULDN'T YOU LOVE ME?":
-                show wifeside away with dissolve
+                show wifeside away
                 w "This isn't fair."
                 w "It's more complicated than that."
                 w "Do you want me to retread a thousand arguments? For what?"
                 w "I'm already at your whim whenever you want."
-                show wifeside towards with dissolve
+                show wifeside towards
                 w "Ask something else."
     l "You said you loved me before."
     l "Did you lie?"
@@ -159,6 +164,7 @@ label meat_route:
                 menu:
                     "> YES.":
                         n "No."
+                        $ surgery_deny = True
                         jump act2meattorture
                     "> NO.":
                         $ surgery_deny = True
@@ -169,6 +175,7 @@ label meat_route:
                 menu:
                     "> YES.":
                         n "No."
+                        $ oxygen_deny = True
                         jump act2meattorture
                     "> NO.":
                         $ oxygen_deny = True
@@ -186,10 +193,10 @@ label meat_route:
     label act2meatquestion9:
         menu:
             "> WHO ARE YOU?":
-                hide wifeside with dissolve
-                show wife scared at interrogation with dissolve
+                hide wifeside
+                show wife scared at interrogation
                 w "I've already told you!"
-                n "A dialogue prompt for the application of the ECT nodes appears. You once again enter your credentials. The amounto f allowed amperes rises."
+                n "A dialogue prompt for the application of the ECT nodes appears. You once again enter your credentials. The amount of allowed amps increases."
                 n "You raise the mA to 15. Her body jolts."
                 w "Alice!"
     label act2meatquestion10:
@@ -243,9 +250,9 @@ label meat_route:
     k "Are we really supposed to let you have the final say despite your obvious bias?"
     l "If I suspected her of anything, I would have followed protocal. Simple."
     l "Our conversations were personal."
-    k "Forgive me if the intricacies of your interpersonal relationship aren't something I'm willing to hinge my life on."
-    l "Then trust me knowing I'm hinging mine on it."
-    l "She's safe."
+    k "I assure you I'm not interested in the intricacies of your relationship. Our safety takes precendence over your sexual tension."
+    l "There's no need to be snide."
+    l "She's safe. That's all that matters as far as you're concerned."
     n "Sutton's brows knit together as she reviews your papers. She takes a deep breath."
     s "No one wants to doubt you. Or her."
     s "But… I don't want to dismiss any concern."
@@ -283,11 +290,11 @@ label meat_route:
     n "The door slowly rises. In its wake, she's there."
     show wife normal with dissolve
     n "Her expression is vacant. The burns on her arms have been sufficiently covered by her gown — you ignore them."
-    n "She approahces you. You hold your breath."
+    n "She approaches you. You hold your breath."
     n "She stops right in front of you."
     n "She throws her arms around you, embracing you. You prop your chin carefully over her shoulder."
     l "It's okay."
-    n "It's over."
+    l "It's over."
     n "Sutton smiles at her. Turner doesn't acknowledge her."
     s "Good to see you back, Turner."
     s "…I'll give you some room."
@@ -313,7 +320,8 @@ label meat_route:
     n "The engineer vivisected in the hall.{w} The computer technician in chunks in the recreation room.{w} The geologist run through in the cafeteria."
     n "You make it to the bridge to find Sutton laying in her own viscera. Her mouth gapes open, mid-shout, arm outstreteched. Toward the receiver, you guess. Not that it would have done anyone any good."
     n "It's hard to feel anything at all. There's a hollow void where your feelings should be."
-    n "Footfall reverberates across the metallic corridor behind you. You turn as Knight grabs you by the shoulders, shaking you."
+    n "Footfall approaches you from behind. You turn as Knight grabs you by the shoulders, shaking you."
+    show ecologist_cast with dissolve
     k "WHAT DID YOU DO?"
     n "You only stare back. They shove you aside, manning the control deck. They hesitate, lost in all the buttons and dials, before grabbing Sutton's headset and receiver."
     k "MAYDAY, MAYDAY, SOFT TOUCH TO ARIADNE, THERE'S SOMETHING ON OUR SHIP, THERE'S SOMETHING—"

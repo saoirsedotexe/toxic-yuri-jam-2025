@@ -53,7 +53,7 @@ image pinned:
         "images/CGs/MEAT/pinned_down_short.png"
         
 transform interrogation:
-    xalign 0.75
+    xalign 0.9
     
 transform midleft:
-    xalign 0.25
+    xalign 0.2

@@ -174,9 +174,8 @@ style say_dialogue:
     adjust_spacing False
 
 screen airlockbutton():
-    add "airlock.png"
-    hbox xalign 1 yalign 0.5:
-        imagebutton auto "images/airlock_%s.png" action Jump("airlock")
+    vbox xpos 1857 yalign 0.5:
+        imagebutton auto "images/airlock_%s.png" focus_mask True action Jump("airlock")
 
 ## Input screen ################################################################
 ##
